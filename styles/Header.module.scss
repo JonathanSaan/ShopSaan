@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Kanit:ital,wght@1,700&family=League+Gothic&family=Raleway:wght@600&family=Roboto&family=Rubik+Mono+One&family=Teko:wght@600&display=swap');
+
+.Header {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  /*background-color: #1B1B1E;*/
+  background-color: #eeeeee;
+  border-bottom: 1px solid gray;
+  padding: 0 .5em;
+  height: 4rem;
+  width: 100%;
+  
+  .Title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    /*color: #FFF;*/
+    color: #000;
+    font-size: 2em;
+    font-weight: 700;
+  }
+  
+  .IconButton {
+    margin: 0 0 0 auto;
+    height: 1.7em;
+    width: 1.7em;
+    
+    .IconUser {
+      height: 2rem;
+      /*color: #FFF;*/
+      color: #000;
+    }
+    
+    &:active, &:hover {
+      /*background-color: #FFF;*/
+      background-color: #e0e0e0;
+      transition: 500ms;
+      
+      .IconUser {
+        transition: 500ms;
+        /*color: #000;*/
+        /*color: #FFF;*/
+      }
+    }
+  }
+}
+
+.Menu {
+  margin: .4em 0 0 0;
+  
+  .MenuItem {
+    padding: 0 3em 0 0;
+    margin: 0 -1em 0 0;
+    
+    span {
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 .5em;
+      
+      p {
+        margin: 0 0 0 .5em;
+      }
+    }
+  }
+}

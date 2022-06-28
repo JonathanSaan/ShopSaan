@@ -1,0 +1,11 @@
+.container {
+  /*background-color: #2A2D34;*/
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 5em .5em 0 .5em;
+}
+
+@media (max-width: 600px) {
+  .container {
+  }
+}
