@@ -1,11 +1,37 @@
 .container {
+  /*display: flex;
+  /*flex-direction: column;
   /*background-color: #2A2D34;*/
   background-color: #fafafa;
   min-height: 100vh;
-  padding: 5em .5em 0 .5em;
+  padding: 7em 0 0 0;
+  /*margin: 0 auto;*/
+  
+  .ContainerProducts {
+    display: flex;
+    margin: 0 auto;
+    width: 60%;
+    flex-wrap: wrap;
+    
+    .Product {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto 1em auto;
+      height: 10em;
+      width: 10em;
+      background-color: red;
+      
+      .Image {
+        background-color: #FFF;
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
   .container {
+    .ContainerProducts {
+      width: 100%;
+    }
   }
 }
