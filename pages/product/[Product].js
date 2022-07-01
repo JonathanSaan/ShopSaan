@@ -13,8 +13,10 @@ export default function Product() {
   return (
     <>
       <Header />
-      <div className={styles.Product}>
-        <h1>Product {id} </h1>
+      <div className={styles.ContainerProduct}>
+        <div className={styles.DetailsProduct}>
+          <h1>Product {id} </h1>
+        </div>
       </div>
     </>
   );

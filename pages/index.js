@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Header/>
-      <div className={styles.container}>
+      <div className={styles.Container}>
         <div className={styles.ContainerProducts}>
           {Products.map((product) => (
             <Link href={`/product/${product.id}`}>

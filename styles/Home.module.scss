@@ -1,11 +1,7 @@
-.container {
-  /*display: flex;
-  /*flex-direction: column;
-  /*background-color: #2A2D34;*/
+.Container {
   background-color: #fafafa;
   min-height: 100vh;
   padding: 7em 0 0 0;
-  /*margin: 0 auto;*/
   
   .ContainerProducts {
     display: flex;
@@ -29,7 +25,7 @@
 }
 
 @media (max-width: 600px) {
-  .container {
+  .Container {
     .ContainerProducts {
       width: 100%;
     }

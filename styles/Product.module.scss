@@ -1,15 +1,17 @@
-.Product {
+.ContainerProduct {
   padding: 4em 0 0 0;
   width: 60%;
   margin: 0 auto;
   
-  h1 {
-    align-content: center;
+  .DetailsProduct {
+    h1 {
+      align-content: center;
+    }
   }
 }
 
 @media (max-width: 600px) { 
-  .Product {
+  .ContainerProduct {
     width: 100%;
   }
 }
