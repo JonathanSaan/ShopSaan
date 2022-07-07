@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Link } from "next/link";
+import Link from "next/link";
 import { Menu, MenuItem, Button, IconButton } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 
@@ -12,7 +12,7 @@ import styles from "../styles/Header.module.scss"
 
 
 
-export const Dropdown = () => {
+export const Dropdown = ({ theme, toggleTheme }) => {
   
   const options = [
     {
@@ -27,7 +27,6 @@ export const Dropdown = () => {
     }
   ];
   
-  
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
@@ -38,15 +37,21 @@ export const Dropdown = () => {
           
           <Menu className={styles.Menu} {...bindMenu(popupState)}>
             {options.map((option) => (
-              <MenuItem className={styles.MenuItem} component={Link} to={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`} >
+              <MenuItem className={styles.MenuItem} >
+                <Link href={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`}>
                 <span >
                   {option.img}
                   <p>
                     {option.aOption}
                   </p>
                 </span>
+                </Link >
               </MenuItem>
             ))}
+            <MenuItem onClick={toggleTheme} className={styles.MenuItem}>
+              <input className={styles.Checkbox} type="checkbox" value={theme} />
+              Dark Theme
+            </MenuItem>
           </Menu>
         </>
       )}

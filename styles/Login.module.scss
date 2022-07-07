@@ -1,0 +1,113 @@
+.ContainerLogin {
+  display: flex;
+  justify-content: center;
+  background-color: #191b1c;
+  min-height: 100vh;
+  
+  .Login {
+    background-color: #0f1112;
+    border-radius: .5em;
+    box-shadow: 10px 15px 15px 0px rgba(0,0,0,0.73);
+    margin: 7em 0 4em 0;
+    height: 33em;
+    width: 23em;
+    
+    .Title {
+      color: #FFF;
+      text-align: center;
+      margin: 1em 0 .5em 0;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      input {
+        border: none;
+        outline: none;
+        border-radius: .5em;
+        margin: 1em 5vw;
+        padding: 0 0 0 2vw;
+        height: 4vw;
+        width: 30vw;
+      }
+      
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: .7em;
+        background-color: #5516c4;
+        color: #FFF;
+        margin: 1em 0;
+        height: 5.5vw;
+        width: 30vw;
+        
+        &:hover {
+          background-color: #4810aa;
+          transition: 200ms;
+        }
+      }
+      
+      .Chrome {
+        background-color: #e4e4e4;
+        color: #000;
+        
+        .ChromeIcon {
+          margin: 0 .5em 0 0;
+        }
+        
+        &:hover {
+          background-color: #a6a6a6;
+        }
+      }
+    }
+    
+    
+    p {
+      font-size: .7em;
+      margin: 10em 0 3em 0;
+      color: #FFF;
+      text-align: center;
+      
+      a {
+        outline: none;
+        text-decoration: none;
+        color: #727272;
+        margin: 0 0 0 .4em;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .ContainerLogin {
+    .Login {
+      width: 90vw;
+      
+      form {
+        input {
+          height: 3em;
+          width: 80vw;
+        }
+        
+        button {
+          margin: 1em 0;
+          height: 4em;
+          width: 80vw;
+        }
+      }
+      
+      
+      
+      p {
+        /*margin: 13em 0 0 0;
+        font-size: 3vw; */
+      }
+    }
+  }
+}

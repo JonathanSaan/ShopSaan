@@ -1,16 +1,19 @@
+import { useState } from "react";
 import Link from "next/link";
 
 import { Dropdown } from "./Dropdown";
 import styles from "../styles/Header.module.scss";
 
-export const Header = () => {
+
+
+export const Header = ({theme, toggleTheme}) => {
   
   return (
-    <header className={styles.Header}>
+    <header className={ theme ? styles.HeaderDark : styles.HeaderWhite}>
       <Link href="/">
         <a className={styles.Title}>ShopSaan </a>
       </Link>
-      <Dropdown />
+      <Dropdown theme={theme} toggleTheme={toggleTheme} />
     </header>
   );
 };

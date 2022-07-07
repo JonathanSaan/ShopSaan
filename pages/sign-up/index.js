@@ -1,0 +1,133 @@
+import { useEffect, useState } from "react";
+
+import Link from "next/link";
+import GoogleIcon from "@mui/icons-material/Google";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+  
+import { Header } from "../../components/Header";
+import styles from "../../styles/SignUp.module.scss";
+
+
+export default function SignUp({ theme, toggleTheme }) {
+  
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  
+  
+  const HandleForm = () => {
+    if (email === "" || password === "") {
+      return (
+        toast.error('Unable to log in with provided credentials.', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+        })
+      );
+    };
+    
+    if (password !== confirmPassword) {
+      return (
+        toast.error('Passwords must be the same.', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+        })
+      );
+    };
+    
+    return null
+  };
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  return (
+    <>
+      <Header theme={theme} toggleTheme={toggleTheme} />
+      <div className={styles.ContainerSignUp}>
+        <div className={styles.SignUp}>
+          <h1 className={styles.Title}>Sign Up</h1>
+          
+          <form >
+            <input 
+              type="text" 
+              required
+              name="text"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              placeholder="Username"
+            />
+            
+            <input 
+              type="email" 
+              required
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+            />
+            
+            <input 
+              type="password"
+              required
+              name="password"
+              min="6"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            
+            <input 
+              type="password"
+              required
+              name="password"
+              min="6"
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
+            />
+          </form>
+          
+          <button onClick={HandleForm}>
+            Sign up
+          </button>
+          
+          <button className={styles.Chrome} >
+            <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
+          </button>
+          
+          <p>
+            Already have an account? 
+            <Link href={`/login`}>
+              Login
+            </Link>
+          </p>
+        </div>
+        
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+        />
+      </div>
+    </>
+  );
+};

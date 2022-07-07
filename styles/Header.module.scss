@@ -1,63 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Kanit:ital,wght@1,700&family=League+Gothic&family=Raleway:wght@600&family=Roboto&family=Rubik+Mono+One&family=Teko:wght@600&display=swap');
 
-.Header {
+.HeaderWhite {
   display: flex;
   position: fixed;
   align-items: center;
-  /*background-color: #1B1B1E;*/
   background-color: #eeeeee;
+  transition: 300ms;
   border-bottom: 1px solid gray;
   padding: 0 .5em;
   height: 4rem;
   width: 100%;
-  
+
   .Title {
     font-family: 'Alegreya Sans SC', sans-serif;
-    /*color: #FFF;*/
     color: #000;
     font-size: 2em;
     font-weight: 700;
   }
-  
+
   .IconButton {
     margin: 0 0 0 auto;
     height: 1.7em;
     width: 1.7em;
-    
+
     .IconUser {
       height: 2rem;
-      /*color: #FFF;*/
       color: #000;
     }
-    
+
     &:active, &:hover {
-      /*background-color: #FFF;*/
       background-color: #e0e0e0;
       transition: 500ms;
-      
+
       .IconUser {
         transition: 500ms;
-        /*color: #000;*/
-        /*color: #FFF;*/
+      }
+    }
+  }
+}
+
+.HeaderDark {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  background-color: #1B1B1E;
+  transition: 300ms;
+  border-bottom: 1px solid gray;
+  padding: 0 .5em;
+  height: 4rem;
+  width: 100%;
+
+  .Title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #FFF;
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  .IconButton {
+    margin: 0 0 0 auto;
+    height: 1.7em;
+    width: 1.7em;
+
+    .IconUser {
+      height: 2rem;
+      color: #FFF;
+    }
+
+    &:active, &:hover {
+      background-color: #393c43;
+      transition: 500ms;
+
+      .IconUser {
+        transition: 500ms;
+        color: lightgray;
       }
     }
   }
 }
 
 .Menu {
-  margin: .4em 0 0 0;
+  margin: .4em 0 0 -.5em;
   
   .MenuItem {
-    padding: 0 3em 0 0;
-    margin: 0 -1em 0 0;
+    height: 3em;
+    padding: 0 2em 0 1em;
     
     span {
       display: flex;
-      align-items: center;
-      padding: 0 0 0 .5em;
       
       p {
         margin: 0 0 0 .5em;
+      }
+    }
+    
+    .Checkbox {
+      position: relative;
+      -webkit-appearance: none;
+      margin: 0 1em 0 0;
+      outline: none;
+      height: 1em;
+      width: 2em;
+      background-color: #c6c6c6;
+      border-radius: 1em;
+      box-shadow: inset 0 0 .1em rgba(0,0,0,0.2);
+      
+      &:checked {
+        background-color: #03a9f4;
+      }
+      
+      &:before {
+        content: '';
+        position: absolute;
+        border-radius: 1em;
+        height: 1em;
+        width: 1em;
+        left: 0;
+        background-color: #FFF;
+        transform: scale(1.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,.2);
+        transition: 500ms;
+      }
+      
+      &:checked:before {
+        left: 1em;
       }
     }
   }
