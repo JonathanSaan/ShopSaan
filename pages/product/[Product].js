@@ -11,19 +11,18 @@ import styles from "../../styles/Product.module.scss";
 export default function Product({ theme, toggleTheme }) {
   
   const router = useRouter()
-  const { id } = router.query
-  
-  //const theme = useContext(UserContext);
+  const parameter = router.query.Product
+  console.log(router)
   
   return (
     <>
       <Head>
-        <title>Product </title>
+        <title>Product - {parameter}</title>
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
-      <div className={theme ? styles.ContainerProductDark : styles.ContainerProductWhite}>
-        <div className={styles.DetailsProduct}>
-          <h1>Product {theme} </h1>
+      <div className={theme ? styles.DarkMode : styles.LightMode}>
+        <div className={styles.Container}>
+          <h1>Product {parameter} </h1>
         </div>
       </div>
     </>

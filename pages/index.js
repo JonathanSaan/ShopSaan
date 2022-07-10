@@ -13,10 +13,10 @@ import styles from "../styles/Home.module.scss";
 
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/hello")
+  const data = await fetch("http://localhost:3000/api/ProductsList")
   
   const Products = await data.json()
-  console.log(Products)
+  //console.log(Products)
   
   return {
     props: { Products },
@@ -34,8 +34,8 @@ export default function Home({ theme, toggleTheme, Products }) {
         <title>ShopSaan </title>
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
-      <div className={theme ? styles.ContainerDark : styles.ContainerWhite}>
-        <div className={styles.ContainerProducts}>
+      <div className={theme ? styles.DarkMode : styles.LightMode}>
+        <div className={styles.Container}>
           {Products.map((product) => (
             <Link href={`/product/${product.name.toLowerCase()}`}>
               <div className={styles.Product}>

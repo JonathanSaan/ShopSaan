@@ -9,7 +9,7 @@ import styles from "../styles/Header.module.scss";
 export const Header = ({theme, toggleTheme}) => {
   
   return (
-    <header className={ theme ? styles.HeaderDark : styles.HeaderWhite}>
+    <header className={ theme ? styles.DarkMode : styles.LightMode}>
       <Link href="/">
         <a className={styles.Title}>ShopSaan </a>
       </Link>

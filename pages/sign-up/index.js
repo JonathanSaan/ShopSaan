@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +11,8 @@ import styles from "../../styles/SignUp.module.scss";
 
 
 export default function SignUp({ theme, toggleTheme }) {
+  
+  const { data: session } = useSession()
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +49,7 @@ export default function SignUp({ theme, toggleTheme }) {
       );
     };
     
-    return null
+    return signIn("email");
   };
   
   useEffect(() => {
@@ -56,8 +59,8 @@ export default function SignUp({ theme, toggleTheme }) {
   return (
     <>
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <div className={styles.ContainerSignUp}>
-        <div className={styles.SignUp}>
+      <div className={theme ? styles.DarkMode : styles.LightMode}>
+        <div className={styles.Container}>
           <h1 className={styles.Title}>Sign Up</h1>
           
           <form >
@@ -98,15 +101,15 @@ export default function SignUp({ theme, toggleTheme }) {
               onChange={e => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
             />
+          
+            <button onClick={HandleForm}>
+              Sign up
+            </button>
+            
+            <button onClick={() => signIn("google")} className={styles.Chrome} >
+              <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
+            </button>
           </form>
-          
-          <button onClick={HandleForm}>
-            Sign up
-          </button>
-          
-          <button className={styles.Chrome} >
-            <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
-          </button>
           
           <p>
             Already have an account? 

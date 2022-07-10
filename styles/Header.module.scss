@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Kanit:ital,wght@1,700&family=League+Gothic&family=Raleway:wght@600&family=Roboto&family=Rubik+Mono+One&family=Teko:wght@600&display=swap');
 
-.HeaderWhite {
+.LightMode {
   display: flex;
   position: fixed;
   align-items: center;
   background-color: #eeeeee;
-  transition: 300ms;
+  transition: 200ms;
   border-bottom: 1px solid gray;
   padding: 0 .5em;
   height: 4rem;
@@ -39,12 +39,12 @@
   }
 }
 
-.HeaderDark {
+.DarkMode {
   display: flex;
   position: fixed;
   align-items: center;
   background-color: #1B1B1E;
-  transition: 300ms;
+  transition: 200ms;
   border-bottom: 1px solid gray;
   padding: 0 .5em;
   height: 4rem;
@@ -93,6 +93,11 @@
         margin: 0 0 0 .5em;
       }
     }
+  }
+  
+  .MenuItemCheckbox {
+    height: 3em;
+    padding: 0 2em 0 1em;
     
     .Checkbox {
       position: relative;
@@ -105,10 +110,6 @@
       border-radius: 1em;
       box-shadow: inset 0 0 .1em rgba(0,0,0,0.2);
       
-      &:checked {
-        background-color: #03a9f4;
-      }
-      
       &:before {
         content: '';
         position: absolute;
@@ -119,9 +120,13 @@
         background-color: #FFF;
         transform: scale(1.1);
         box-shadow: 0 2px 5px rgba(0,0,0,.2);
-        transition: 500ms;
+        transition: 200ms;
       }
       
+      &:checked {
+        background-color: #03a9f4;
+      }
+    
       &:checked:before {
         left: 1em;
       }

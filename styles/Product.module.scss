@@ -1,25 +1,25 @@
-.ContainerProductWhite {
+.LightMode {
   background-color: #f5f7f6;
   margin: 0 auto;
   padding: 4em 0 0 0;
   min-height: 100vh;
   width: 90%;
 
-  .DetailsProduct {
+  .Container {
     h1 {
       align-content: center;
     }
   }
 }
 
-.ContainerProductDark {
+.DarkMode {
   background-color: #2A2D34;
   margin: 0 auto;
   padding: 4em 0 0 0;
   min-height: 100vh;
   width: 90%;
 
-  .DetailsProduct {
+  .Container {
     h1 {
       align-content: center;
     }
@@ -27,11 +27,11 @@
 }
 
 @media (max-width: 600px) {
-  .ContainerProductWhite {
+  .LightMode {
     width: 100%;
   }
   
-  .ContainerProductDark {
+  .DarkMode {
     width: 100%;
   }
 }

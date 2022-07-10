@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,12 +12,28 @@ import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {
   
+  const { data: session } = useSession()
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   
   const HandleForm = () => {
     if (email === "" || password === "") {
+      if (theme === false) {
+        return (
+          toast.error('Unable to log in with provided credentials.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+            draggable: false,
+          })
+        );
+      }
+      
       return (
         toast.error('Unable to log in with provided credentials.', {
           position: "top-center",
@@ -25,23 +42,24 @@ export default function Login({ theme, toggleTheme }) {
           closeOnClick: true,
           pauseOnHover: true,
           progress: undefined,
-          draggable: false,
+          draggable: true,
         })
       );
     };
     
-    return null;
+    return signIn("email");
   };
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
+  
   return (
     <>
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <div className={styles.ContainerLogin}>
-        <div className={styles.Login}>
+      <div className={theme ? styles.DarkMode : styles.LightMode}>
+        <div className={styles.Container}>
           <h1 className={styles.Title}>Login</h1>
           
           <form >
@@ -62,17 +80,14 @@ export default function Login({ theme, toggleTheme }) {
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
             />
-
-
-
           
-          <button onClick={HandleForm}>
-            Login
-          </button>
-          
-          <button className={styles.Chrome}>
-            <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
-          </button>
+            <button  onClick={HandleForm} >
+              Login
+            </button>
+            
+            <button onClick={() => signIn("google")} className={styles.Chrome}>
+              <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
+            </button>
           </form>
           
           
@@ -84,17 +99,31 @@ export default function Login({ theme, toggleTheme }) {
           </p>
         </div>
         
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-        />
+        {theme ? 
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable={false}
+            pauseOnHover
+          />
+        :
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        }
       </div>
     </>
   );
