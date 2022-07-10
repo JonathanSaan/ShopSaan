@@ -90,7 +90,6 @@ export default function Login({ theme, toggleTheme }) {
             </button>
           </form>
           
-          
           <p>
             Don't have an account? 
             <Link href={`/sign-up`}>
@@ -98,32 +97,7 @@ export default function Login({ theme, toggleTheme }) {
             </Link>
           </p>
         </div>
-        
-        {theme ? 
-          <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable={false}
-            pauseOnHover
-          />
-        :
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        }
+        <ToastContainer/>
       </div>
     </>
   );

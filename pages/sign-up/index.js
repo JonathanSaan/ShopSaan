@@ -22,6 +22,20 @@ export default function SignUp({ theme, toggleTheme }) {
   
   const HandleForm = () => {
     if (email === "" || password === "") {
+      if (theme === false) {
+        return (
+          toast.error('Unable to log in with provided credentials.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+            draggable: false,
+          })
+        );
+      }
+      
       return (
         toast.error('Unable to log in with provided credentials.', {
           position: "top-center",
@@ -29,13 +43,27 @@ export default function SignUp({ theme, toggleTheme }) {
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
-          draggable: false,
           progress: undefined,
+          draggable: true,
         })
       );
     };
     
     if (password !== confirmPassword) {
+      if (theme === false) {
+        return (
+          toast.error('Passwords must be the same.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+            draggable: false,
+          })
+        );
+      }
+      
       return (
         toast.error('Passwords must be the same.', {
           position: "top-center",
@@ -43,8 +71,8 @@ export default function SignUp({ theme, toggleTheme }) {
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
-          draggable: false,
           progress: undefined,
+          draggable: true,
         })
       );
     };
@@ -118,18 +146,7 @@ export default function SignUp({ theme, toggleTheme }) {
             </Link>
           </p>
         </div>
-        
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-        />
+        <ToastContainer/>
       </div>
     </>
   );
