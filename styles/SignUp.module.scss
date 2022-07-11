@@ -6,16 +6,14 @@
 
   .Container {
     background-color: #f5f7f6;
-    border-radius: .5em;
-    border: 1px solid #000;
-    margin: 7em 0 4em 0;
-    height: 40em;
+    margin: 4em 0;
+    height: 44em;
     width: 23em;
 
     .Title {
       color: #000;
       text-align: center;
-      margin: 1em 0;
+      margin: 2em 0;
     }
 
     form {
@@ -24,24 +22,32 @@
       align-items: center;
 
       input {
-        border: none;
+        border: 1px solid #e0dee4;
+        color: #A8A5AF;
         outline: none;
-        border-radius: .5em;
-        margin: .5em 5vw 1em 5vw;
+        border-radius: .6em;
+        background-color: #F4F3F5;
+        margin: .5em 5vw;
         padding: 0 0 0 2vw;
-        height: 4vw;
+        height: 5vw;
         width: 30vw;
+        
+        &:focus {
+          background-color: #E8E7EB;
+          border: 1px solid #9895A2;
+        }
       }
       
       button {
         display: flex;
         justify-content: center;
+        align-items: center;
         border: none;
         border-radius: .7em;
         background-color: #000;
+        box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
         color: #FFF;
-        align-items: center;
-        margin: 1em 0 0 0;
+        margin: 2em 0 0 0;
         height: 5vw;
         width: 30vw;
   
@@ -66,8 +72,8 @@
     }
 
     p {
-      font-size: .7em;
-      margin: 10em 0 5em 0;
+      font-size: .8em;
+      margin: 7em 0 5em 0;
       color: #000;
       text-align: center;
 
@@ -95,16 +101,14 @@
 
   .Container {
     background-color: #1B1B1E;
-    border-radius: .5em;
-    border: .5px solid #FFF;
-    margin: 7em 0 4em 0;
-    height: 40em;
+    margin: 4em 0;
+    height: 44em;
     width: 23em;
 
     .Title {
       color: #FFF;
       text-align: center;
-      margin: 1em 0;
+      margin: 2em 0;
     }
 
     form {
@@ -113,13 +117,20 @@
       align-items: center;
 
       input {
-        border: none;
+        border: 1px solid #e0dee4;
+        color: #A8A5AF;
         outline: none;
         border-radius: .5em;
-        margin: .5em 5vw 1em 5vw;
+        background-color: #F4F3F5;
+        margin: .5em 5vw;
         padding: 0 0 0 2vw;
-        height: 4vw;
+        height: 5vw;
         width: 30vw;
+        
+        &:focus {
+          background-color: #d8d6dd;
+          border: 1px solid #9895A2;
+        }
       }
       
       button {
@@ -130,7 +141,7 @@
         border-radius: .7em;
         background-color: #5E5CE5;
         color: #FFF;
-        margin: 1em 0 0 0;
+        margin: 2em 0 0 0;
         height: 5vw;
         width: 30vw;
   
@@ -155,8 +166,8 @@
     }
 
     p {
-      font-size: .7em;
-      margin: 10em 0 5em 0;
+      font-size: .8em;
+      margin: 7em 0 5em 0;
       color: #FFF;
       text-align: center;
 
@@ -178,7 +189,7 @@
 
       form {
         input {
-          height: 3em;
+          height: 4em;
           width: 80vw;
         }
         
@@ -196,7 +207,7 @@
 
       form {
         input {
-          height: 3em;
+          height: 4em;
           width: 80vw;
         }
         
