@@ -14,6 +14,8 @@ export default function Product({ theme, toggleTheme }) {
   const parameter = router.query.Product
   console.log(router)
   
+  
+  
   return (
     <>
       <Head>

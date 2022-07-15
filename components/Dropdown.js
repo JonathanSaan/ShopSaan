@@ -48,8 +48,9 @@ export const Dropdown = ({ theme, toggleTheme }) => {
                 </Link >
               </MenuItem>
             ))}
-            <MenuItem onClick={toggleTheme} className={styles.MenuItemCheckbox} value={theme}>
-              <input className={styles.Checkbox} type="checkbox"  />
+            
+            <MenuItem onClick={toggleTheme} className={styles.MenuItemCheckbox}>
+              <input className={styles.Checkbox} value={theme} type="checkbox"/>
               Dark Theme
             </MenuItem>
           </Menu>

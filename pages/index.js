@@ -10,8 +10,6 @@ import styles from "../styles/Home.module.scss";
 
 
 
-
-
 export async function getStaticProps() {
   const data = await fetch("http://localhost:3000/api/ProductsList")
   
@@ -22,7 +20,6 @@ export async function getStaticProps() {
     props: { Products },
   }
 }
-
 
 
 
@@ -43,6 +40,7 @@ export default function Home({ theme, toggleTheme, Products }) {
                   className={styles.Image}
                   src={product.img}
                   alt={product.name}
+                  loading="lazy"
                   width={100}
                   height={100}
                 />

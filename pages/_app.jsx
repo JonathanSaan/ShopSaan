@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SessionProvider } from "next-auth/react";
 
 import "../styles/globals.scss";
@@ -6,15 +6,23 @@ import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps: { session, ...pageProps }}) {
   
-  let [theme, SetTheme] = useState(false);
+  const [theme, setTheme] = useState(false)
+  
+  console.log('Theme estado', theme)
+  
   const toggleTheme = () => {
-    SetTheme(!theme)
-    if (theme === false) {
-      return localStorage.setItem(theme, false);
-    }
-    //localStorage.setItem('theme', theme);
-    return localStorage.setItem(theme, true);
-  };
+    setTheme(theme => {
+      localStorage.setItem('theme', JSON.stringify(!theme))
+      return !theme
+   })
+ }
+  
+  useEffect(() => {
+    const themeFromLocalStorage = JSON.parse(localStorage.getItem('theme'))
+    setTheme(themeFromLocalStorage)
+  }, [])
+  
+  
   
   return (
     <SessionProvider session={session}>

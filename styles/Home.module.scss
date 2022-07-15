@@ -1,7 +1,5 @@
 .LightMode {
   background-color: #f5f7f6;
-  /*background-color: #fafafa;
-  /*background-color: #DDE4E1; */
   min-height: 100vh;
   padding: 6em 0 0 0;
   transition: 200ms;
@@ -9,7 +7,7 @@
   .Container {
     display: flex;
     margin: 0 auto;
-    width: 60%;
+    width: 40em;
     flex-wrap: wrap;
     
     .Product {
@@ -21,7 +19,6 @@
       width: 10.5em;
       transition: 200ms;
       background-color: #FFF;
-      /*background-color: #f5f7f6;*/
       
       .Image {
         margin: 0 auto;
@@ -56,7 +53,7 @@
   .Container {
     display: flex;
     margin: 0 auto;
-    width: 60%;
+    width: 40em;
     flex-wrap: wrap;
     
     .Product {
@@ -94,7 +91,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .LightMode {
     .Container {
       width: 100%;
@@ -104,20 +101,6 @@
   .DarkMode {
     .Container {
       width: 100%;
-    }
-  }
-}
-
-@media (max-height: 300px) {
-  .LightMode {
-    .Container {
-      width: 80%;
-    }
-  }
-  
-  .DarkMode {
-    .Container {
-      width: 80%;
     }
   }
 }
