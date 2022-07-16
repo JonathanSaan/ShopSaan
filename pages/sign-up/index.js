@@ -9,16 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Header } from "../../components/Header";
 import styles from "../../styles/SignUp.module.scss";
 
-
 export default function SignUp({ theme, toggleTheme }) {
-  
   const { data: session } = useSession()
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
   
   const HandleForm = () => {
     if (email === "" || password === "") {

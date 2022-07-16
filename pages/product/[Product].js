@@ -7,14 +7,10 @@ import Head from "next/head";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Product.module.scss";
 
-
 export default function Product({ theme, toggleTheme }) {
-  
   const router = useRouter()
   const parameter = router.query.Product
   console.log(router)
-  
-  
   
   return (
     <>

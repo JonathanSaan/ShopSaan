@@ -11,12 +11,10 @@ import styles from "../../styles/Login.module.scss";
 
 
 export default function Login({ theme, toggleTheme }) {
-  
   const { data: session } = useSession()
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
   
   const HandleForm = () => {
     if (email === "" || password === "") {
@@ -53,8 +51,6 @@ export default function Login({ theme, toggleTheme }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  
   
   return (
     <>
