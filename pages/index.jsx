@@ -30,9 +30,9 @@ export default function Home({ theme, toggleTheme, Products }) {
       <div className={theme ? styles.DarkMode : styles.LightMode}>
         <div className={styles.Container}>
           {Products.map((product) => (
-            <Link href={`/product/${product.name.toLowerCase()}`}>
+            <Link key={product.id} href={`/product/${product.name.toLowerCase()}`}>
               <div className={styles.Product}>
-                <img
+                <Image
                   className={styles.Image}
                   src={product.img}
                   alt={product.name}

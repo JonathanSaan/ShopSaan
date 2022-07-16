@@ -35,7 +35,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
           
           <Menu className={styles.Menu} {...bindMenu(popupState)}>
             {options.map((option) => (
-              <MenuItem className={styles.MenuItem} >
+              <MenuItem key={option.id} className={styles.MenuItem} >
                 <Link href={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`}>
                 <span >
                   {option.img}

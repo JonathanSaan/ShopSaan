@@ -88,7 +88,7 @@ export default function Login({ theme, toggleTheme }) {
           </form>
           
           <p>
-            Don't have an account? 
+            Do not have an account? 
             <Link href={`/sign-up`}>
               Create new one
             </Link>
