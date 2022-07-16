@@ -33,9 +33,7 @@ export default function Home({ theme, toggleTheme, Products }) {
               <div className={styles.Product}>
                 <picture>
                   <source srcSet={product.img} type="image/webp" />
-                  <img
-                    className={styles.Image}
-                    src={product.img}
+                  <img                    src={product.img}
                     alt={product.name}
                     loading="lazy"
                     width={100}

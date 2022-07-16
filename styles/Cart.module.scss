@@ -1,13 +1,14 @@
 .LightMode {
   background-color: #f5f7f6;
   min-height: 100vh;
-  padding: 6em 0 0 0;
+  padding: 4em 0 0 0;
   transition: 200ms;
   
   .Container {
     display: flex;
     margin: 0 auto;
-    width: 40em;
+    width: 90%;
+    /*width: 40em;*/
     flex-wrap: wrap;
   }
 }
@@ -16,13 +17,14 @@
 .DarkMode {
   background-color: #2A2D34;
   min-height: 100vh;
-  padding: 6em 0 0 0;
+  padding: 4em 0 0 0;
   transition: 200ms;
   
   .Container {
     display: flex;
     margin: 0 auto;
-    width: 40em;
+    width: 90%;
+    /*width: 40em;*/
     flex-wrap: wrap;
   }
 }
@@ -30,13 +32,13 @@
 @media (max-width: 800px) {
   .LightMode {
     .Container {
-      width: 100%;
+      /*width: 100%;*/
     }
   }
   
   .DarkMode {
     .Container {
-      width: 100%;
+      /*width: 100%;*/
     }
   }
 }

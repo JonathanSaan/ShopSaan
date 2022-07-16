@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { SessionProvider } from "next-auth/react";
+//import { SessionProvider } from "next-auth/react";
 
 import "../styles/globals.scss";
 
-function MyApp({ Component, pageProps: { session, ...pageProps }}) {
+//function MyApp({ Component, pageProps: { session, ...pageProps }}) {
+function MyApp({ Component, pageProps }) {
   
   const [theme, setTheme] = useState(false);
   
@@ -20,10 +21,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps }}) {
   }, []);
   
   return (
-    <SessionProvider session={session}>
       <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
-    </SessionProvider>
   );
 };
+    /*<SessionProvider session={session}>
+    
+    </SessionProvider>*/
 
 export default MyApp
