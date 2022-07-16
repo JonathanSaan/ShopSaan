@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useSession, signIn } from "next-auth/react";
+//import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,7 +10,7 @@ import { Header } from "../../components/Header";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
-  const { data: session } = useSession()
+  //const { data: session } = useSession()
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -74,7 +74,7 @@ export default function SignUp({ theme, toggleTheme }) {
       );
     };
     
-    return signIn("email");
+    //return signIn("email");
   };
   
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function SignUp({ theme, toggleTheme }) {
               Sign up
             </button>
             
-            <button onClick={() => signIn("google")} className={styles.Chrome} >
+            <button className={styles.Chrome} >
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
             </button>
           </form>
