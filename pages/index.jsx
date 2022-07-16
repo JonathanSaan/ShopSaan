@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -32,14 +31,17 @@ export default function Home({ theme, toggleTheme, Products }) {
           {Products.map((product) => (
             <Link key={product.id} href={`/product/${product.name.toLowerCase()}`}>
               <div className={styles.Product}>
-                <Image
-                  className={styles.Image}
-                  src={product.img}
-                  alt={product.name}
-                  loading="lazy"
-                  width={100}
-                  height={100}
-                />
+                <picture>
+                  <source srcSet={product.img} type="image/webp" />
+                  <img
+                    className={styles.Image}
+                    src={product.img}
+                    alt={product.name}
+                    loading="lazy"
+                    width={100}
+                    height={100}
+                  />
+                </picture>
                 <p className={styles.ProductName}>
                   {product.name}
                 </p>
