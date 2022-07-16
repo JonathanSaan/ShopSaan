@@ -2,9 +2,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { Dropdown } from "./Dropdown";
+import { Cart } from "./Cart";
 import styles from "../styles/Header.module.scss";
-
-
 
 export const Header = ({theme, toggleTheme}) => {
   
@@ -14,6 +13,7 @@ export const Header = ({theme, toggleTheme}) => {
         <a className={styles.Title}>ShopSaan </a>
       </Link>
       <Dropdown theme={theme} toggleTheme={toggleTheme} />
+      <Cart theme={theme} toggleTheme={toggleTheme} />
     </header>
   );
 };

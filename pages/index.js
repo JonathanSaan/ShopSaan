@@ -8,8 +8,6 @@ import { Header } from "../components/Header";
 import ProductsList from "./api/ProductsList";
 import styles from "../styles/Home.module.scss";
 
-
-
 export async function getStaticProps() {
   const data = await fetch("http://localhost:3000/api/ProductsList")
   
@@ -18,10 +16,8 @@ export async function getStaticProps() {
   
   return {
     props: { Products },
-  }
-}
-
-
+  };
+};
 
 export default function Home({ theme, toggleTheme, Products }) {
   

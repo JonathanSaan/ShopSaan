@@ -13,13 +13,14 @@
 
   .Title {
     font-family: 'Alegreya Sans SC', sans-serif;
+    margin: 0 auto 0 0;
     color: #000;
     font-size: 2em;
     font-weight: 700;
   }
 
   .IconButton {
-    margin: 0 0 0 auto;
+    cursor: pointer;
     height: 1.7em;
     width: 1.7em;
 
@@ -52,13 +53,14 @@
 
   .Title {
     font-family: 'Alegreya Sans SC', sans-serif;
+    margin: 0 auto 0 0;
     color: #FFF;
     font-size: 2em;
     font-weight: 700;
   }
 
   .IconButton {
-    margin: 0 0 0 auto;
+    cursor: pointer;
     height: 1.7em;
     width: 1.7em;
 
@@ -79,10 +81,12 @@
   }
 }
 
+
 .Menu {
   margin: .4em 0 0 -.5em;
   
   .MenuItem {
+    cursor: pointer;
     height: 3em;
     padding: 0 2em 0 1em;
     
@@ -96,39 +100,44 @@
   }
   
   .MenuItemCheckbox {
-    height: 3em;
-    padding: 0 2em 0 1em;
+    padding: 0;
     
-    .Checkbox {
-      position: relative;
-      -webkit-appearance: none;
-      margin: 0 1em 0 0;
-      outline: none;
-      height: 1em;
-      width: 2em;
-      background-color: #c6c6c6;
-      border-radius: 1em;
-      box-shadow: inset 0 0 .1em rgba(0,0,0,0.2);
+    label {
+      cursor: pointer;
+      height: 3em;
+      padding: .8em 1em;
       
-      &:before {
-        content: '';
-        position: absolute;
-        border-radius: 1em;
+      .Checkbox {
+        position: relative;
+        -webkit-appearance: none;
+        margin: 0 1em 0 0;
+        outline: none;
         height: 1em;
-        width: 1em;
-        left: 0;
-        background-color: #FFF;
-        transform: scale(1.1);
-        box-shadow: 0 2px 5px rgba(0,0,0,.2);
-        transition: 200ms;
-      }
-      
-      &:checked {
-        background-color: #03a9f4;
-      }
-    
-      &:checked:before {
-        left: 1em;
+        width: 2em;
+        background-color: #c6c6c6;
+        border-radius: 1em;
+        box-shadow: inset 0 0 .1em rgba(0,0,0,0.2);
+        
+        &:before {
+          content: '';
+          position: absolute;
+          border-radius: 1em;
+          height: 1em;
+          width: 1em;
+          left: 0;
+          background-color: #FFF;
+          transform: scale(1.1);
+          box-shadow: 0 2px 5px rgba(0,0,0,.2);
+          transition: 200ms;
+        }
+        
+        &:checked {
+          background-color: #03a9f4;
+        }
+        
+        &:checked:before {
+          left: 1em;
+        }
       }
     }
   }

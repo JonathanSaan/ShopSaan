@@ -10,8 +10,6 @@ import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
 import styles from "../styles/Header.module.scss"
 
-
-
 export const Dropdown = ({ theme, toggleTheme }) => {
   
   const options = [
@@ -49,9 +47,11 @@ export const Dropdown = ({ theme, toggleTheme }) => {
               </MenuItem>
             ))}
             
-            <MenuItem onClick={toggleTheme} className={styles.MenuItemCheckbox}>
-              <input className={styles.Checkbox} value={theme} type="checkbox"/>
-              Dark Theme
+            <MenuItem className={styles.MenuItemCheckbox}>
+              <label >
+                <input onClick={toggleTheme} className={styles.Checkbox} value={theme} type="checkbox"/>
+                Dark Theme
+              </label>
             </MenuItem>
           </Menu>
         </>

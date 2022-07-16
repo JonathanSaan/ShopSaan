@@ -38,4 +38,4 @@ export default function ProductsList(req, res) {
       price: "$100",
     },
   ])
-}
+};
