@@ -9,9 +9,9 @@ import ProductsList from "./api/ProductsList";
 import styles from "../styles/Home.module.scss";
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/ProductsList")
+  const data = await fetch("http://localhost:3000/api/ProductsList");
   
-  const Products = await data.json()
+  const Products = await data.json();
   //console.log(Products)
   
   return {
