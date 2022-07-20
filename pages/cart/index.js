@@ -13,7 +13,7 @@ export default function Cart({ theme, toggleTheme }) {
       <Header theme={theme} toggleTheme={toggleTheme}/>
       <div className={ theme ? styles.DarkMode : styles.LightMode}>
         <div className={styles.Container}>
-          <h1>Cart </h1>
+          <h1>Your Cart is Empty</h1>
         </div>
       </div>
     </>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-//import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,8 +9,6 @@ import { Header } from "../../components/Header";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
-  //const { data: session } = useSession()
-  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,20 +16,6 @@ export default function SignUp({ theme, toggleTheme }) {
   
   const HandleForm = () => {
     if (email === "" || password === "") {
-      if (theme === false) {
-        return (
-          toast.error('Unable to log in with provided credentials.', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            draggable: false,
-          })
-        );
-      }
-      
       return (
         toast.error('Unable to log in with provided credentials.', {
           position: "top-center",
@@ -47,20 +30,6 @@ export default function SignUp({ theme, toggleTheme }) {
     };
     
     if (password !== confirmPassword) {
-      if (theme === false) {
-        return (
-          toast.error('Passwords must be the same.', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            draggable: false,
-          })
-        );
-      }
-      
       return (
         toast.error('Passwords must be the same.', {
           position: "top-center",
@@ -73,8 +42,6 @@ export default function SignUp({ theme, toggleTheme }) {
         })
       );
     };
-    
-    //return signIn("email");
   };
   
   useEffect(() => {
@@ -139,7 +106,7 @@ export default function SignUp({ theme, toggleTheme }) {
           <p>
             Already have an account? 
             <Link href={`/login`}>
-              Login
+              <a>Login </a>
             </Link>
           </p>
         </div>

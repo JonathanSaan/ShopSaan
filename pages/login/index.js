@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-//import { useSession, signIn, signOut } from "next-auth/react";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,27 +10,11 @@ import styles from "../../styles/Login.module.scss";
 
 
 export default function Login({ theme, toggleTheme }) {
-  //const { data: session } = useSession()
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const HandleForm = () => {
     if (email === "" || password === "") {
-      if (theme === false) {
-        return (
-          toast.error('Unable to log in with provided credentials.', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            draggable: false,
-          })
-        );
-      }
-      
       return (
         toast.error('Unable to log in with provided credentials.', {
           position: "top-center",
@@ -44,8 +27,6 @@ export default function Login({ theme, toggleTheme }) {
         })
       );
     };
-    
-    //return signIn("email");
   };
   
   useEffect(() => {
@@ -90,7 +71,7 @@ export default function Login({ theme, toggleTheme }) {
           <p>
             Do not have an account? 
             <Link href={`/sign-up`}>
-              Create new one
+              <a>Create new one </a>
             </Link>
           </p>
         </div>

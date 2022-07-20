@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
-//import { SessionProvider } from "next-auth/react";
 
 import "../styles/globals.scss";
 
-//function MyApp({ Component, pageProps: { session, ...pageProps }}) {
 function MyApp({ Component, pageProps }) {
-  
   const [theme, setTheme] = useState(false);
   
   const toggleTheme = () => {
@@ -24,8 +21,5 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
   );
 };
-    /*<SessionProvider session={session}>
-    
-    </SessionProvider>*/
 
 export default MyApp

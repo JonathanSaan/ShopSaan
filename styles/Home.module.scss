@@ -13,30 +13,41 @@
     .Product {
       display: flex;
       flex-direction: column;
-      margin: 0 auto 2em auto;
+      margin: 0 auto 1.5em auto;
       padding: 1.3em 1em 1em 1em;
-      height: 12em;
+      height: 13em;
       width: 10.5em;
       transition: 200ms;
       background-color: #FFF;
+      z-index: 2;
       
-      picture {
+      .image {
         margin: 0 auto;
+        height: 6em;
+        width: 6em;
       }
       
-      .ProductName {
-        transition: 200ms;
-        font-size: 1em;
-        margin: .7em 0 .3em 0;
+      .ListItem {
+        display: inline-block;
+        margin: 1em 0 0 0;
+        width: 4em;
+        padding: 0;
+        
+        .ProductName {
+          height: 1.2em;
+          transition: 200ms;
+          font-size: 1em;
+          margin: .7em 0 .3em 0;
+        }
+        
+        .ProductPrice {
+          color: gray;
+          font-size: .8em;
+          margin: 0;
+        }
       }
       
-      .ProductPrice {
-        color: gray;
-        font-size: .8em;
-        margin: 0;
-      }
-      
-      &:hover {
+      &:active {
         transition: 350ms;
         border: 1px solid #000;
       }
@@ -59,28 +70,38 @@
     .Product {
       display: flex;
       flex-direction: column;
-      margin: 0 auto 2em auto;
+      margin: 0 auto 1.5em auto;
       padding: 1.3em 1em 1em 1em;
-      height: 12em;
+      height: 13em;
       width: 10.5em;
       transition: 200ms;
       background-color: #1B1B1E;
       
-      picture {
+      .image {
         margin: 0 auto;
+        height: 6em;
+        width: 6em;
       }
       
-      .ProductName {
-        transition: 200ms;
-        color: #FFF;
-        font-size: 1em;
-        margin: .7em 0 .3em 0;
-      }
-      
-      .ProductPrice {
-        color: gray;
-        font-size: .8em;
-        margin: 0;
+      .ListItem {
+        display: inline-block;
+        margin: 1em 0 0 0;
+        width: 4em;
+        padding: 0;
+        
+        .ProductName {
+          height: 1.2em;
+          transition: 200ms;
+          color: #FFF;
+          font-size: 1em;
+          margin: .7em 0 .3em 0;
+        }
+        
+        .ProductPrice {
+          color: gray;
+          font-size: .8em;
+          margin: 0;
+        }
       }
       
       &:hover {
@@ -91,7 +112,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .LightMode {
     .Container {
       width: 100%;
