@@ -23,9 +23,8 @@
 
       input {
         border: 1px solid #e0dee4;
-        color: #A8A5AF;
         outline: none;
-        border-radius: .6em;
+        border-radius: .5em;
         background-color: #F4F3F5;
         margin: .5em 5vw;
         padding: 0 0 0 2vw;
@@ -43,16 +42,18 @@
         justify-content: center;
         align-items: center;
         border: none;
-        border-radius: .7em;
+        border-radius: .5em;
         background-color: #000;
         box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
         color: #FFF;
-        margin: 2em 0 0 0;
+        margin: 2em 0 -1em 0;
         height: 5vw;
         width: 30vw;
 
         &:hover {
-          background-color: #181818;
+          background-color: #f5f7f6;
+          border: 1px solid #000;
+          color: #000;
           transition: 200ms;
         }
       }
@@ -64,17 +65,16 @@
         .ChromeIcon {
           margin: 0 .5em 0 0;
         }
-
+        
         &:hover {
-          background-color: #a6a6a6;
+          filter: Brightness(0.8);
         }
       }
     }
 
-
     p {
       font-size: .8em;
-      margin: 8em 0 3em 0;
+      margin: 9em 0 3em 0;
       color: #000;
       text-align: center;
 
@@ -114,7 +114,6 @@
 
       input {
         border: 1px solid #e0dee4;
-        color: #A8A5AF;
         outline: none;
         border-radius: .5em;
         background-color: #F4F3F5;
@@ -125,7 +124,7 @@
         
         &:focus {
           background-color: #d8d6dd;
-          border: 1px solid #9895A2;
+          border: 1px solid #d8d6dd;
         }
       }
 
@@ -134,15 +133,15 @@
         justify-content: center;
         align-items: center;
         border: none;
-        border-radius: .7em;
+        border-radius: .5em;
         background-color: #5E5CE5;
         color: #FFF;
-        margin: 2em 0 0 0;
+        margin: 2em 0 -1em 0;
         height: 5vw;
         width: 30vw;
 
         &:hover {
-          background-color: #4810aa;
+          filter: Brightness(0.8);
           transition: 200ms;
         }
       }
@@ -154,16 +153,12 @@
         .ChromeIcon {
           margin: 0 .5em 0 0;
         }
-
-        &:hover {
-          background-color: #a6a6a6;
-        }
       }
     }
 
     p {
       font-size: .8em;
-      margin: 8em 0 3em 0;
+      margin: 9em 0 3em 0;
       color: #FFF;
       text-align: center;
 

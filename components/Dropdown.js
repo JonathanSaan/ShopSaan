@@ -51,13 +51,13 @@ export const Dropdown = ({ theme, toggleTheme }) => {
             {options.map((option) => (
               <MenuItem key={option.id} className={styles.MenuItem} >
                 <Link href={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`}>
-                <span >
-                  {option.img}
-                  <p>
-                    {option.aOption}
-                  </p>
-                </span>
-                </Link >
+                  <label>
+                    {option.img}
+                    <p>
+                      {option.aOption}
+                    </p>
+                  </label>
+                </Link>
               </MenuItem>
             ))}
             
@@ -86,9 +86,4 @@ export const Dropdown = ({ theme, toggleTheme }) => {
       )}
     </PopupState>
   );
-};          
-              /*<label >
-                <input onClick={toggleTheme} className={theme ? styles.CheckboxTrue : styles.CheckboxFalse } value={theme} type="checkbox"/>
-                Dark Theme
-              </label>*/
-              
+};

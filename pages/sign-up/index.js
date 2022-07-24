@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+//import { useRouter } from "next/dist/client/router"
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
   
 import { Header } from "../../components/Header";
+//import { firebase, auth } from "../../lib/firebase";
+//import { app, database } from '../../lib/firebaseConfig';
+
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
+  //const router = useRouter();
+  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +49,13 @@ export default function SignUp({ theme, toggleTheme }) {
       );
     };
   };
+  
+  /*async function SignInWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider()
+    const result = await auth.SignInWithPopup(provider)
+    router.push("/")
+    return result
+  };*/
   
   useEffect(() => {
     window.scrollTo(0, 0);

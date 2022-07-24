@@ -6,19 +6,19 @@
   
   .Container {
     margin: 0 auto;
-    height: 30em;
+    height: 40em;
     width: 23em;
-    
-    .ProductName {
-      position: absolute;
-      font-size: 2em;
-      margin: .3em 0 0 8em;
-    }
     
     .Image {
       margin: 5em 0 0 0;
       height: 15em;
       width: 15em;
+    }
+    
+    .ProductName {
+      position: absolute;
+      font-size: 2em;
+      margin: -7.2em 0 0 8em;
     }
     
     .ProductPrice {
@@ -30,22 +30,20 @@
     button {
       align-items: center;
       border: none;
-      border-radius: .7em;
+      text-transform: uppercase;
       background-color: #000;
       box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
       color: #FFF;
-      margin: 2em 0;
+      margin: 3em 0 0 0;
       height: 4em;
       width: 25em;
 
-      &:hover {
-        background-color: #181818;
+      &:active {
+        background-color: #f5f7f6;
+        color: #000;
+        border: 1px solid #000;
         transition: 200ms;
       }
-    }
-    
-    h1 {
-      text-align: center;
     }
   }
 }
@@ -58,14 +56,8 @@
   
   .Container {
     margin: 0 auto;
-    height: 30em;
+    height: 40em;
     width: 23em;
-    
-    .ProductName {
-      position: absolute;
-      font-size: 2em;
-      margin: .3em 0 0 8em;
-    }
     
     .Image {
       margin: 5em 0 0 0;
@@ -73,30 +65,34 @@
       width: 15em;
     }
     
+    .ProductName {
+      position: absolute;
+      font-size: 2em;
+      color: #FFF;
+      margin: -7.2em 0 0 8em;
+    }
+    
     .ProductPrice {
       position: absolute;
       font-size: 1.5em;
+      color: #FFF;
       margin: -7.5em 0 0 10.6em;
     }
     
     button {
       align-items: center;
       border: none;
-      border-radius: .7em;
+      text-transform: uppercase;
       background-color: #5E5CE5;
       color: #FFF;
-      margin: 2em 0;
+      margin: 3em 0 0 0;
       height: 4em;
       width: 25em;
     
-      &:hover {
-        background-color: #4810aa;
+      &:active {
+        filter: Brightness(0.8);
         transition: 200ms;
       }
-    }
-      
-    h1 {
-      text-align: center;
     }
   }
 }
@@ -104,15 +100,16 @@
 @media (max-width: 800px) {
   .LightMode {
     .Container {
+      padding: 3em 0;
       max-width: 20em;
+      
+      .Image {
+        margin: 0 auto 3em auto;
+      }
       
       .ProductName {
         position: relative;
         margin: .3em 0;
-      }
-      
-      .Image {
-        margin: 0;
       }
       
       .ProductPrice {
@@ -129,14 +126,15 @@
   .DarkMode {
     .Container {
       max-width: 20em;
+      padding: 3em 0;
+      
+      .Image {
+        margin: 0 auto 3em auto;
+      }
       
       .ProductName {
         position: relative;
         margin: .3em 0;
-      }
-      
-      .Image {
-        margin: 0;
       }
       
       .ProductPrice {

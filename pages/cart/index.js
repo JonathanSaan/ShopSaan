@@ -1,9 +1,11 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 import { Header } from "../../components/Header";
 import styles from "../../styles/Cart.module.scss";
 
 export default function Cart({ theme, toggleTheme }) {
+  const [cart, setCart] = useState([]);
   
   return (
     <>

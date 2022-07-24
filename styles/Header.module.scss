@@ -24,7 +24,7 @@
     cursor: pointer;
     height: 1.7em;
     width: 1.7em;
-
+    
     .IconUser {
       height: 2rem;
       color: #000;
@@ -85,11 +85,14 @@
   
   .MenuItem {
     cursor: pointer;
-    height: 3em;
-    padding: 0 2em 0 1em;
+    padding: 0;
     
-    span {
+    label {
       display: flex;
+      align-items: center;
+      padding: 0 2em 0 1em;
+      height: 3em;
+      width: 100%;
       
       p {
         margin: 0 0 0 .5em;

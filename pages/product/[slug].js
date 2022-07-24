@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
-
 import Head from "next/head";
+
 import { CardMedia, Typography } from "@mui/material";
 
 import { data } from "../../data/data";
+import NotFound from "../404";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Product.module.scss";
 
@@ -13,24 +14,12 @@ export default function Details({ theme, toggleTheme }) {
   const product = data.find((a) => a.slug === slug);
   
   if (!product) {
-    return (
-      <>
-        <Head>
-          <title>Product Not Found</title>
-        </Head>
-        <Header theme={theme} toggleTheme={toggleTheme}/>
-        <div className={theme ? styles.DarkMode : styles.LightMode}>
-          <div className={styles.Container}>
-            <h1>Product Not Found</h1>
-          </div>
-        </div>
-      </>
-    )
-  }
+    return <NotFound />
+  };
   
   const handleItem = () => {
     console.log('test')
-  }
+  };
   
   return (
     <>
