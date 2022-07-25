@@ -16,6 +16,7 @@ import styles from "../styles/Header.module.scss"
 export const Dropdown = ({ theme, toggleTheme }) => {
   const { username, setUsername } = useContext(AuthContext);
   const { email, setEmail } = useContext(AuthContext);
+  const { password, setPassword } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   
   const handleClick = () => {
@@ -30,6 +31,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
 		signOut(auth)
 			.then(() => {
 				setEmail('');
+				setPassword('');
 			})
 			.catch((err) => {
 				console.log(err);
