@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import { AuthProvider } from '../components/context/AuthContext';
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }) {
   }, []);
   
   return (
+    <AuthProvider>
       <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
+    </AuthProvider>
   );
 };
 

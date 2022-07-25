@@ -1,26 +1,47 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-//import { useRouter } from "next/dist/client/router"
+
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
   
 import { Header } from "../../components/Header";
-//import { firebase, auth } from "../../lib/firebase";
-//import { app, database } from '../../lib/firebaseConfig';
+import { AuthContext } from "../../components/context/AuthContext";
+import { getAuth, createUserWithEmailAndPassword } from '../../config/firebase';
 
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
-  //const router = useRouter();
   
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const { username, setUsername } = useContext(AuthContext);
+  const { email, setEmail } = useContext(AuthContext);
+	const { password, setPassword } = useContext(AuthContext);
+  const { confirmPassword, setConfirmPassword } = useContext(AuthContext);
+  const { usernameErr, setUsernameErr } = useContext(AuthContext);
+	const { emailErr, setEmailErr } = useContext(AuthContext);
+	const { passwordErr, setPasswordErr } = useContext(AuthContext);
+  const { confirmPasswordErr, setConfirmPasswordErr } = useContext(AuthContext);
+	const router = useRouter();
+
   
-  const HandleForm = () => {
+  const clearInput = () => {
+    setUsername('');
+		setEmail('');
+		setPassword('');
+		setConfirmPassword('');
+	};
+	
+	const clearErrs = () => {
+	  setUsernameErr('');
+		setEmailErr('');
+		setPasswordErr('');
+		setConfirmPasswordErr('');
+	};
+  
+  
+  const HandleForm = (event) => {
+    event.preventDefault()
     if (email === "" || password === "") {
       return (
         toast.error('Unable to log in with provided credentials.', {
@@ -48,14 +69,30 @@ export default function SignUp({ theme, toggleTheme }) {
         })
       );
     };
-  };
   
-  /*async function SignInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider()
-    const result = await auth.SignInWithPopup(provider)
-    router.push("/")
-    return result
-  };*/
+    clearErrs();
+    
+		const auth = getAuth();
+		createUserWithEmailAndPassword(auth, email, password)
+			.then(() => {
+				clearInput();
+				router.push('/login');
+			})
+			.catch((err) => {
+				const { code, message } = err;
+
+				if (
+					code === 'auth/email-already-in-use' ||
+					code === 'auth/invalid-email'
+				) {
+					setEmailErr(message);
+				}
+
+				if (code === 'auth/weak-password') {
+					setPasswordErr(message);
+				}
+			});
+  };
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,23 +105,27 @@ export default function SignUp({ theme, toggleTheme }) {
         <div className={styles.Container}>
           <h1 className={styles.Title}>Sign Up</h1>
           
-          <form >
+          <form>
             <input 
               type="text" 
               required
               name="text"
+              autoFocus={true}
               value={username}
               onChange={e => setUsername(e.target.value)}
               placeholder="Username"
+              err={usernameErr}
             />
             
             <input 
               type="email" 
               required
               name="email"
+              autoFocus={true}
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="Email"
+              err={emailErr}
             />
             
             <input 
@@ -92,9 +133,11 @@ export default function SignUp({ theme, toggleTheme }) {
               required
               name="password"
               min="6"
+              autoFocus={false}
               value={password}
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
+              err={passwordErr}
             />
             
             <input 
@@ -102,9 +145,11 @@ export default function SignUp({ theme, toggleTheme }) {
               required
               name="password"
               min="6"
+              autoFocus={false}
               value={confirmPassword}
               onChange={e => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
+              err={confirmPasswordErr}
             />
           
             <button onClick={HandleForm}>

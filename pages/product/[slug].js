@@ -17,8 +17,8 @@ export default function Details({ theme, toggleTheme }) {
     return <NotFound />
   };
   
-  const handleItem = () => {
-    console.log('test')
+  const handleCart = () => {
+    console.log('add to cart')
   };
   
   return (
@@ -38,7 +38,7 @@ export default function Details({ theme, toggleTheme }) {
           ></CardMedia>
           <Typography className={styles.ProductName}>{product.name}</Typography>
           <Typography className={styles.ProductPrice}>{product.price} </Typography>
-          <button>
+          <button onClick={handleCart}>
             Add to cart
           </button>
         </div>
