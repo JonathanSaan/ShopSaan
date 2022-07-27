@@ -24,6 +24,11 @@ export default function Login({ theme, toggleTheme }) {
 	const auth = getAuth();
 	
 	
+  const clearErrs = () => {
+		setEmailErr('');
+		setPasswordErr('');
+	};
+  
   const HandleForm = (event) => {
     event.preventDefault()
     if (email === "" || password === "") {
@@ -62,11 +67,6 @@ export default function Login({ theme, toggleTheme }) {
 				}
 			});
   };
-  
-  const clearErrs = () => {
-		setEmailErr('');
-		setPasswordErr('');
-	};
 	
 	const authListener = () => {
 		onAuthStateChanged(auth, (username) => {

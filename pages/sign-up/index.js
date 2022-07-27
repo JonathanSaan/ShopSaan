@@ -41,8 +41,8 @@ export default function SignUp({ theme, toggleTheme }) {
   
   
   const HandleForm = (event) => {
-    event.preventDefault()
-    if (email === "" || password === "") {
+    //event.preventDefault()
+    if (username === "" || email === "" || password === "" || confirmPassword === "") {
       return (
         toast.error('Unable to log in with provided credentials.', {
           position: "top-center",
