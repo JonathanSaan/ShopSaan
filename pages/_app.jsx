@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import { CartProvider } from "react-use-cart";
 import { AuthProvider } from '../components/context/AuthContext';
 import "../styles/globals.scss";
 
@@ -19,9 +20,11 @@ function MyApp({ Component, pageProps }) {
   }, []);
   
   return (
-    <AuthProvider>
-      <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
-    </AuthProvider>
+    <CartProvider>
+      <AuthProvider>
+        <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
+      </AuthProvider>
+    </CartProvider>
   );
 };
 

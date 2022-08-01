@@ -3,30 +3,30 @@
   min-height: 100vh;
   padding: 4em 0 0 0;
   transition: 200ms;
-  
+
   .Container {
     margin: 0 auto;
     height: 40em;
     width: 23em;
-    
+
     .Image {
       margin: 5em 0 0 0;
       height: 15em;
       width: 15em;
     }
-    
+
     .ProductName {
       position: absolute;
       font-size: 2em;
       margin: -7.2em 0 0 8em;
     }
-    
+
     .ProductPrice {
       position: absolute;
       font-size: 1.5em;
       margin: -7.5em 0 0 10.6em;
     }
-    
+
     button {
       align-items: center;
       border: none;
@@ -53,32 +53,32 @@
   padding: 4em 0 0 0;
   min-height: 100vh;
   transition: 200ms;
-  
+
   .Container {
     margin: 0 auto;
     height: 40em;
     width: 23em;
-    
+
     .Image {
       margin: 5em 0 0 0;
       height: 15em;
       width: 15em;
     }
-    
+
     .ProductName {
       position: absolute;
       font-size: 2em;
       color: #FFF;
       margin: -7.2em 0 0 8em;
     }
-    
+
     .ProductPrice {
       position: absolute;
       font-size: 1.5em;
       color: #FFF;
       margin: -7.5em 0 0 10.6em;
     }
-    
+
     button {
       align-items: center;
       border: none;
@@ -88,7 +88,7 @@
       margin: 3em 0 0 0;
       height: 4em;
       width: 25em;
-    
+
       &:active {
         filter: Brightness(0.8);
         transition: 200ms;
@@ -102,46 +102,46 @@
     .Container {
       padding: 3em 0;
       max-width: 20em;
-      
+
       .Image {
         margin: 0 auto 3em auto;
       }
-      
+
       .ProductName {
         position: relative;
         margin: .3em 0;
       }
-      
+
       .ProductPrice {
         position: relative;
         margin: .3em 0;
       }
-      
+
       button {
         width: 100%;
       }
     }
   }
-  
+
   .DarkMode {
     .Container {
       max-width: 20em;
       padding: 3em 0;
-      
+
       .Image {
         margin: 0 auto 3em auto;
       }
-      
+
       .ProductName {
         position: relative;
         margin: .3em 0;
       }
-      
+
       .ProductPrice {
         position: relative;
         margin: .3em 0;
       }
-      
+
       button {
         width: 100%;
       }

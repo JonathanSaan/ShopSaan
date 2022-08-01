@@ -25,6 +25,12 @@
     height: 1.7em;
     width: 1.7em;
     
+    .TotalItemsCart {
+      position: absolute;
+      font-size: .7em;
+      margin: 0 0 2em 1.5em;
+    }
+    
     .IconUser {
       height: 2rem;
       color: #000;
@@ -62,6 +68,13 @@
     height: 1.7em;
     width: 1.7em;
 
+    .TotalItemsCart {
+      position: absolute;
+      color: #5E5CE5;
+      font-size: .7em;
+      margin: 0 0 2em 1.5em;
+    }
+    
     .IconUser {
       height: 2rem;
       color: #FFF;

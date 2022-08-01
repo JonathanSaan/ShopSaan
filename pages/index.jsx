@@ -36,7 +36,7 @@ export default function Home({ theme, toggleTheme }) {
                     {product.name}
                   </Typography>
                   <Typography className={styles.ProductPrice}>
-                    {product.price}
+                    ${product.price}
                   </Typography>
                 </ListItem>
               </Grid>

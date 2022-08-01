@@ -1,15 +1,121 @@
 .LightMode {
   background-color: #f5f7f6;
   min-height: 100vh;
-  padding: 4em 0 0 0;
+  padding: 4em 0 1em 0;
   transition: 200ms;
-  
+
   .Container {
-    display: flex;
     margin: 0 auto;
-    width: 90%;
-    /*width: 40em;*/
-    flex-wrap: wrap;
+    width: 50%;
+
+    .Title {
+      text-align: center;
+      margin: .5em 0 1em;
+    }
+
+    .ListProducts {
+      min-height: 23em;
+
+      .Product {
+        display: flex;
+        height: 7em;
+        width: 100%;
+        align-items: center;
+        border-bottom: .5px solid #000;
+
+        .Image {
+          height: 5em;
+          width: 5em;
+        }
+
+        .Details {
+          margin: 0 0 0 .5em;
+
+          .Name {
+            font-weight: 600;
+          }
+
+          .Remove {
+            font-size: .6em;
+            height: 1.5em;
+            width: 4em;
+            text-transform: uppercase;
+            border-bottom: 1px solid gray;
+            text-align: center;
+          }
+        }
+
+        .Right {
+          display: flex;
+          align-items: center;
+          min-width: 8em;
+          margin: 0 0 0 auto;
+
+          .Price {
+            margin: 0 auto 0 0;
+          }
+
+          button {
+            height: 2em;
+            width: 2em;
+            border: lightgray solid 1px;
+            background-color: #FFF;
+            color: #000;
+          }
+
+          .UpdateItemQuantity {
+            &:active {
+              filter: Brightness(0.8);
+              transition: 200ms;
+            }
+          }
+
+          .Quantity {
+            color: #000;
+
+            p {
+              margin: auto;
+            }
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .Total {
+      margin: 1em 0 1em .5em;
+      font-weight: 600;
+
+      span {
+        margin: 0 0 0 .3em;
+        font-weight: 400;
+      }
+    }
+
+    .Checkout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: .5em;
+      text-transform: uppercase;
+      background-color: #000;
+      box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
+      color: #FFF;
+      margin: 0 auto 5em auto;
+      height: 4em;
+      width: 20em;
+
+      &:hover {
+        background-color: #f5f7f6;
+        border: 1px solid #000;
+        color: #000;
+        transition: 200ms;
+      }
+    }
   }
 }
 
@@ -17,28 +123,136 @@
 .DarkMode {
   background-color: #2A2D34;
   min-height: 100vh;
-  padding: 4em 0 0 0;
+  padding: 4em 0 1em 0;
   transition: 200ms;
-  
+
   .Container {
-    display: flex;
     margin: 0 auto;
-    width: 90%;
-    /*width: 40em;*/
-    flex-wrap: wrap;
+    width: 50%;
+
+    .Title {
+      text-align: center;
+      margin: .5em 0 1em;
+      color: #FFF;
+    }
+
+    .ListProducts {
+      min-height: 23em;
+
+      .Product {
+        display: flex;
+        height: 7em;
+        width: 100%;
+        align-items: center;
+        border-bottom: .5px solid gray;
+
+        .Image {
+          height: 5em;
+          width: 5em;
+        }
+
+        .Details {
+          margin: 0 0 0 .5em;
+
+          .Name {
+            color: #FFF;
+            font-weight: 600;
+          }
+
+          .Remove {
+            font-size: .6em;
+            height: 1.5em;
+            width: 4em;
+            text-transform: uppercase;
+            color: lightgray;
+            border-bottom: 1px solid gray;
+            text-align: center;
+          }
+        }
+
+        .Right {
+          display: flex;
+          align-items: center;
+          min-width: 8em;
+          margin: 0 0 0 auto;
+
+          .Price {
+            margin: 0 auto 0 0;
+            color: lightgray;
+          }
+
+          button {
+            height: 2em;
+            width: 2em;
+            border: gray solid 1px;
+            background-color: #FFF;
+            color: #000;
+          }
+
+          .UpdateItemQuantity {
+            &:active {
+              filter: Brightness(0.8);
+              transition: 200ms;
+            }
+          }
+
+          .Quantity {
+            color: #000;
+
+            p {
+              margin: auto;
+            }
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .Total {
+      margin: 1em 0 1em .5em;
+      color: #FFF;
+      font-weight: 600;
+
+      span {
+        margin: 0 0 0 .3em;
+        font-weight: 400;
+      }
+    }
+
+    .Checkout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: .5em;
+      text-transform: uppercase;
+      background-color: #5E5CE5;
+      color: #FFF;
+      margin: 0 auto 5em auto;
+      height: 4em;
+      width: 20em;
+
+      &:active {
+        filter: Brightness(0.8);
+        transition: 200ms;
+      }
+    }
   }
 }
 
 @media (max-width: 800px) {
   .LightMode {
     .Container {
-      /*width: 100%;*/
+      width: 90%;
     }
   }
-  
+
   .DarkMode {
     .Container {
-      /*width: 100%;*/
+      width: 90%;
     }
   }
 }
