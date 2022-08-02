@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { useCart } from "react-use-cart";
@@ -53,12 +54,14 @@ export default function Cart({ theme, toggleTheme }) {
                     loading="lazy"
                   ></CardMedia>
                   <div className={styles.Details}>
-                  <p className={styles.Name}>
-                    {item.name}
-                  </p>
-                  <p onClick={() => removeItem(item.id)} className={styles.Remove}>
-                    remove
-                  </p>
+                    <Link key={item.id} href={`product/${item.slug}`}>
+                      <a className={styles.Name}>
+                        {item.name}
+                      </a>
+                    </Link>
+                    <p onClick={() => removeItem(item.id)} className={styles.Remove}>
+                      remove
+                    </p>
                 </div>
                 <div className={styles.Right}>
                   <p className={styles.Price}>
@@ -79,9 +82,8 @@ export default function Cart({ theme, toggleTheme }) {
                     </button>
                   </div>
                 </li>
-                
-            < />
-          ))}
+              < />
+            ))}
           </div>
           <p className={styles.Total}>
             Total:
