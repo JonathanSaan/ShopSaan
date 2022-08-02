@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 import styles from "../styles/Header.module.scss";
 
-export const Cart = ({ theme, toggleTheme }) => {
+export const Cart = () => {
   
   const { totalUniqueItems } = useCart();
   
