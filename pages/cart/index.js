@@ -44,45 +44,43 @@ export default function Cart({ theme, toggleTheme }) {
           <h1 className={styles.Title}>Cart ({totalUniqueItems})</h1>
           <div className={styles.ListProducts}>
             {items.map((item) => (
-              <>
-                <li className={styles.Product} key={item.id}>
-                  <CardMedia
-                    component="img"
-                    image={item.img}
-                    title={item.name}
-                    className={styles.Image}
-                    loading="lazy"
-                  ></CardMedia>
-                  <div className={styles.Details}>
-                    <Link key={item.id} href={`product/${item.slug}`}>
-                      <a className={styles.Name}>
-                        {item.name}
-                      </a>
-                    </Link>
-                    <p onClick={() => removeItem(item.id)} className={styles.Remove}>
-                      remove
-                    </p>
-                </div>
-                <div className={styles.Right}>
-                  <p className={styles.Price}>
-                    ${item.price}
+              <div className={styles.Product} key={item.id}>
+                <CardMedia
+                  component="img"
+                  image={item.img}
+                  title={item.name}
+                  className={styles.Image}
+                  loading="lazy"
+                ></CardMedia>
+                <div className={styles.Details}>
+                  <Link key={item.id} href={`product/${item.slug}`}>
+                    <a className={styles.Name}>
+                      {item.name}
+                    </a>
+                  </Link>
+                  <p onClick={() => removeItem(item.id)} className={styles.Remove}>
+                    remove
                   </p>
-                  <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-                    >
-                      -
+              </div>
+              <div className={styles.Right}>
+                <p className={styles.Price}>
+                  ${item.price}
+                </p>
+                <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                  >
+                    -
+                </button>
+                <button className={styles.Quantity}>
+                  <p>
+                    {item.quantity}
+                  </p>
                   </button>
-                  <button className={styles.Quantity}>
-                    <p>
-                      {item.quantity}
-                    </p>
-                    </button>
-                    <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </li>
-              < />
+                  <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
           <p className={styles.Total}>
