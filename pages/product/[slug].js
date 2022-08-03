@@ -15,11 +15,11 @@ export default function Details({ theme, toggleTheme }) {
   const { slug } = router.query;
   const product = data.find((a) => a.slug === slug);
   
+  const { addItem } = useCart();
+  
   if (!product) {
     return <NotFound />
   };
-  
-  const { addItem } = useCart();
   
   return (
     <>

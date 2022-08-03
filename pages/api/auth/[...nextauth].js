@@ -1,4 +1,4 @@
-import EmailProvider from "next-auth/providers/email";
+/*import EmailProvider from "next-auth/providers/email";
 
 providers: [
   EmailProvider({
@@ -12,4 +12,4 @@ providers: [
     },
     from: process.env.EMAIL_FROM
   }),
-]
+]*/
