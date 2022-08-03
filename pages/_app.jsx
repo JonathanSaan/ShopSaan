@@ -20,17 +20,17 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const themeFromLocalStorage = JSON.parse(localStorage.getItem('theme'));
     setTheme(themeFromLocalStorage);
-    //setShowing(true);
+    setShowing(true);
   }, []);
 
 
-  /*if (!showing) {
+  if (!showing) {
     return null;
   }
   
   if (typeof window === 'undefined') {
     return <></>;
-  } */
+  } 
   
   return (
     <CartProvider>

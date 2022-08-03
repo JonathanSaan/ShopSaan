@@ -68,7 +68,7 @@ export default function Login({ theme, toggleTheme }) {
 			});
   };
 	
-	const authListener = () => {
+	/*const authListener = () => {
 		onAuthStateChanged(auth, (username) => {
 			if (username) {
 				setPassword('');
@@ -77,11 +77,11 @@ export default function Login({ theme, toggleTheme }) {
 				setUsername('');
 			}
 		});
-	};
+	};*/
 	
   useEffect(() => {
     window.scrollTo(0, 0);
-    authListener();
+    //authListener();
   }, []);
   
   return (

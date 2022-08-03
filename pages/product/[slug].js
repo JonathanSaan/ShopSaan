@@ -20,9 +20,6 @@ export default function Details({ theme, toggleTheme }) {
   };
   
   const { addItem } = useCart();
-  const handleCart = () => {
-    console.log('add to cart')
-  };
   
   return (
     <>
