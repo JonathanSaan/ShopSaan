@@ -33,7 +33,7 @@ export default function Cart({ theme, toggleTheme }) {
     < />
   );
 
-  return (
+  /*return (
     <>
       <Head>
         <title>Cart </title>
@@ -95,5 +95,5 @@ export default function Cart({ theme, toggleTheme }) {
         </div>
       </div>
     < />
-  );
+  );*/
 };
