@@ -20,7 +20,7 @@ export const Cart = () => {
         </p>
       }
       <Link className={styles.IconButton} href="/cart">
-        <ShoppingCartOutlinedIcon className={styles.IconUser} />
+        <ShoppingCartOutlinedIcon className={styles.Icon} />
       </Link>
     </IconButton>
   );

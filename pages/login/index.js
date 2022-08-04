@@ -1,15 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import {
-	getAuth,
-	signInWithEmailAndPassword,
-	onAuthStateChanged
-} from "../../config/firebase";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "../../config/firebase";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Login.module.scss";
 import { AuthContext } from "../../components/context/AuthContext";

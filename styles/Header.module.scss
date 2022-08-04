@@ -25,15 +25,15 @@
     height: 1.7em;
     width: 1.7em;
     
+    .Icon {
+      height: 2rem;
+      color: #000;
+    }
+    
     .TotalItemsCart {
       position: absolute;
       font-size: .7em;
       margin: 0 0 2em 1.5em;
-    }
-    
-    .IconUser {
-      height: 2rem;
-      color: #000;
     }
 
     &:active, &:hover {
@@ -68,23 +68,23 @@
     height: 1.7em;
     width: 1.7em;
 
+    .Icon {
+      height: 2rem;
+      color: #FFF;
+    }
+    
     .TotalItemsCart {
       position: absolute;
       color: #5E5CE5;
       font-size: .7em;
       margin: 0 0 2em 1.5em;
     }
-    
-    .IconUser {
-      height: 2rem;
-      color: #FFF;
-    }
 
     &:active, &:hover {
       background-color: #393c43;
       transition: 500ms;
 
-      .IconUser {
+      .Icon {
         transition: 500ms;
         color: lightgray;
       }
@@ -113,7 +113,7 @@
     }
   }
   
-  .MenuItemCheckbox {
+  .ThemeCheckbox {
     padding: 0;
     cursor: pointer;
     

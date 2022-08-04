@@ -62,7 +62,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
       {(popupState) => (
         <>
           <IconButton className={styles.IconButton} aria-label="user" {...bindTrigger(popupState)}>
-            <AccountCircleOutlinedIcon className={styles.IconUser} />
+            <AccountCircleOutlinedIcon className={styles.Icon} />
           </IconButton>
           
           <Menu className={styles.Menu} {...bindMenu(popupState)}>
@@ -97,7 +97,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
     				  </>
             )}
             
-            <MenuItem className={styles.MenuItemCheckbox}>
+            <MenuItem className={styles.ThemeCheckbox}>
               <label>
                 <FormControlLabel
                   sx={{

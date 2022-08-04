@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
+import { ToastContainer, toast } from "react-toastify";
 import { useCart } from "react-use-cart";
 import { CardMedia } from "@mui/material";
 
@@ -9,6 +11,9 @@ import { Header } from "../../components/Header";
 import styles from "../../styles/Cart.module.scss";
 
 export default function Cart({ theme, toggleTheme }) {
+  const { confirmBuy, setConfirmBuy } = useState(true);
+  
+  const router = useRouter();
   
   const {
     isEmpty,
@@ -18,6 +23,23 @@ export default function Cart({ theme, toggleTheme }) {
     updateItemQuantity,
     removeItem,
   } = useCart();
+  
+  const HandleCart = () => {
+    if (confirmBuy) {
+      return (
+        toast.error('Suceess buy.', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+          draggable: true,
+        })
+      );
+    };
+    return router.push('/login');
+  };
   
   if (isEmpty) return (
     <>
@@ -89,10 +111,11 @@ export default function Cart({ theme, toggleTheme }) {
               {cartTotal}
             </span>
           </p>
-          <button className={styles.Checkout}>
+          <button onClick={HandleCart} className={styles.Checkout}>
             checkout
           </button>
         </div>
+        <ToastContainer/>
       </div>
     < />
   );
