@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import Modal from "react-modal";
@@ -135,7 +135,7 @@ export default function Cart({ theme, toggleTheme }) {
           <p className={styles.Total}>
             Total:
             <span>
-              {cartTotal}
+              ${cartTotal}
             </span>
           </p>
           <button onClick={HandleCart} className={styles.Checkout}>
