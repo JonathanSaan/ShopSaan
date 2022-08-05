@@ -16,6 +16,10 @@ export default function Home({ theme, toggleTheme }) {
     <>
       <Head>
         <title>ShopSaan </title>
+        <meta name="description" content="A ecommerce made with next js" />
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="store, ecommerce, shopping, organs, organ" />
+        <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
       <div className={theme ? styles.DarkMode : styles.LightMode}>

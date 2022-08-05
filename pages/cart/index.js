@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+import Modal from "react-modal";
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { ToastContainer, toast } from "react-toastify";
 import { useCart } from "react-use-cart";
 import { CardMedia } from "@mui/material";
@@ -10,8 +12,40 @@ import { CardMedia } from "@mui/material";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Cart.module.scss";
 
+const ThemeDarkModal = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    backgroundColor: "#2A2D34",
+    color: '#FFF',
+    padding: "2em 1em 2em 1em",
+    textAlign: "center",
+    marginTop: '2em',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  }
+};
+
+const ThemeWhiteModal = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    backgroundColor: "#FFF",
+    padding: "2em 1em 2em 1em",
+    textAlign: "center",
+    marginTop: '2em',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  }
+};
+
 export default function Cart({ theme, toggleTheme }) {
-  const { confirmBuy, setConfirmBuy } = useState(true);
+  
+  const [isOpen, setIsOpen] = useState(false);
   
   const router = useRouter();
   
@@ -20,26 +54,19 @@ export default function Cart({ theme, toggleTheme }) {
     totalUniqueItems,
     cartTotal,
     items,
+    emptyCart,
     updateItemQuantity,
     removeItem,
   } = useCart();
   
   const HandleCart = () => {
-    if (confirmBuy) {
-      return (
-        toast.error('Suceess buy.', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          progress: undefined,
-          draggable: true,
-        })
-      );
-    };
-    return router.push('/login');
+    setIsOpen(!isOpen);
+    if (isOpen == true) {
+      emptyCart();
+    }
+    //return router.push('/login'); 
   };
+  
   
   if (isEmpty) return (
     <>
@@ -115,7 +142,18 @@ export default function Cart({ theme, toggleTheme }) {
             checkout
           </button>
         </div>
-        <ToastContainer/>
+        
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={HandleCart}
+          style={theme ? ThemeDarkModal: ThemeWhiteModal}
+          contentLabel="My dialog"
+        >
+          <CheckCircleOutlinedIcon color="success" sx={{ fontSize: 80 }} />
+          <h1>Thank you.</h1>
+          <p>Your order was completed successfully. </p>
+          <button onClick={HandleCart} style={{ margin: '1em 0 0 15em', padding: '.5em 1em' }} >Ok</button>
+        </Modal>
       </div>
     < />
   );

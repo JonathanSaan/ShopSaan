@@ -6,6 +6,7 @@
 
   .Container {
     margin: 0 auto;
+    min-height: 10em;
     width: 50%;
 
     .Title {
@@ -123,13 +124,13 @@
 
 .DarkMode {
   background-color: #1B1B1E;
-  /*background-color: #2A2D34;*/
   min-height: 100vh;
   padding: 4em 0 1em 0;
   transition: 200ms;
 
   .Container {
     margin: 0 auto;
+    min-height: 10em;
     width: 50%;
 
     .Title {
