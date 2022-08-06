@@ -1,13 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import {
-	getAuth,
-	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword,
-	onAuthStateChanged,
-	signOut
-} from 'firebase/auth';
+import { initializeApp } from "firebase/app";
 
-const config = {
+const firebaseConfig = {
 	apiKey: `${process.env.NEXT_PUBLIC_Firebase_API_Key}`,
 	authDomain: `${process.env.NEXT_PUBLIC_Auth_Domain}`,
 	projectId: `${process.env.NEXT_PUBLIC_Project_Id}`,
@@ -17,12 +10,4 @@ const config = {
 	appId: `${process.env.NEXT_PUBLIC_App_Id}`
 };
 
-initializeApp(config);
-
-export {
-	getAuth,
-	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword,
-	onAuthStateChanged,
-	signOut
-};
+export const app = initializeApp(firebaseConfig);

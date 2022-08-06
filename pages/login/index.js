@@ -5,80 +5,68 @@ import Link from "next/link";
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    GithubAuthProvider,
+    signInWithPopup
+} from "firebase/auth";
 
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "../../config/firebase";
+import { app } from "../../config/firebase";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Login.module.scss";
-import { AuthContext } from "../../components/context/AuthContext";
 
 export default function Login({ theme, toggleTheme }) {
-  const { username, setUsername } = useContext(AuthContext);
-	const { email, setEmail } = useContext(AuthContext);
-	const { password, setPassword } = useContext(AuthContext);
-	const { emailErr, setEmailErr } = useContext(AuthContext);
-	const { passwordErr, setPasswordErr } = useContext(AuthContext);
-	const router = useRouter();
-	const auth = getAuth();
-	
-	
-  const clearErrs = () => {
-		setEmailErr('');
-		setPasswordErr('');
-	};
   
+  const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signUp = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        console.log(response.user)
+        sessionStorage.setItem("Token", response.user.accessToken);
+        router.push("/")
+      })
+      .catch(err => {
+        return (
+            toast.error("Unable to log in with provided credentials.", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              progress: undefined,
+              draggable: true,
+            })
+          );
+      })
+  };
+
+  const signUpWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((response) => {
+        sessionStorage.setItem("Token", response.user.accessToken)
+        console.log(response.user)
+        router.push("/")
+      })
+  };
+    
   const HandleForm = (event) => {
     event.preventDefault()
-    if (email === "" || password === "") {
-      return (
-        toast.error('Unable to log in with provided credentials.', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          progress: undefined,
-          draggable: true,
-        })
-      );
-    };
-    clearErrs();
-
-		signInWithEmailAndPassword(auth, email, password)
-			.then(() => {
-				setPassword('');
-				router.push('/');
-			})
-			.catch((err) => {
-				const { code, message } = err;
-
-				if (
-					code === 'auth/invalid-email' ||
-					code === 'auth/user-disabled' ||
-					code === 'auth/user-not-found'
-				) {
-					setEmailErr(message);
-				}
-
-				if (code === 'auth/wrong-password') {
-					setPasswordErr(message);
-				}
-			});
+    signUp()
   };
 	
-	const authListener = () => {
-		onAuthStateChanged(auth, (username) => {
-			if (username) {
-				setPassword('');
-				setUsername(username);
-			} else {
-				setUsername('');
-			}
-		});
-	};
-	
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    authListener();
+	useEffect(() => {
+    let token = sessionStorage.getItem("Token")
+
+    if(token){
+      router.push("/")
+    }
   }, []);
   
   return (
@@ -92,22 +80,18 @@ export default function Login({ theme, toggleTheme }) {
             <input 
               htmlFor="email"
               type="email" 
-              required
               autoFocus={true}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              err={emailErr}
             />
             <input 
               type="password"
               htmlFor="password"
-              required
               autoFocus={false}
               min="6"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              err={passwordErr}
               placeholder="Password"
             />
           
@@ -115,7 +99,7 @@ export default function Login({ theme, toggleTheme }) {
               Login
             </button>
             
-            <button className={styles.Chrome}>
+            <button onClick={signUpWithGoogle} className={styles.Chrome}>
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
             </button>
           </form>

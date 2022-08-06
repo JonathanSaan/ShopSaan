@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import { CartProvider } from "react-use-cart";
 
-import { AuthProvider } from "../components/context/AuthContext";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
@@ -34,9 +33,7 @@ function MyApp({ Component, pageProps }) {
   
   return (
     <CartProvider>
-      <AuthProvider>
-        <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
-      </AuthProvider>
+      <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
     </CartProvider>
   );
 };

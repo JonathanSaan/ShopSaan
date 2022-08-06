@@ -1,50 +1,57 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    GithubAuthProvider,
+    signInWithPopup
+} from "firebase/auth";
 
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
   
 import { Header } from "../../components/Header";
-import { AuthContext } from "../../components/context/AuthContext";
-import { getAuth, createUserWithEmailAndPassword } from '../../config/firebase';
-
+import { app } from "../../config/firebase";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
   
-  const { username, setUsername } = useContext(AuthContext);
-  const { email, setEmail } = useContext(AuthContext);
-	const { password, setPassword } = useContext(AuthContext);
-  const { confirmPassword, setConfirmPassword } = useContext(AuthContext);
-  const { usernameErr, setUsernameErr } = useContext(AuthContext);
-	const { emailErr, setEmailErr } = useContext(AuthContext);
-	const { passwordErr, setPasswordErr } = useContext(AuthContext);
-  const { confirmPasswordErr, setConfirmPasswordErr } = useContext(AuthContext);
-	const router = useRouter();
+  const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const router = useRouter();
+  
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  
-  const clearInput = () => {
-    setUsername('');
-		setEmail('');
-		setPassword('');
-		setConfirmPassword('');
-	};
-	
-	const clearErrs = () => {
-	  setUsernameErr('');
-		setEmailErr('');
-		setPasswordErr('');
-		setConfirmPasswordErr('');
-	};
-  
+  const signUp = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        console.log(response.user)
+        sessionStorage.setItem("Token", response.user.accessToken);
+        router.push("/")
+      })
+  };
+
+  const signUpWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((response) => {
+        sessionStorage.setItem("Token", response.user.accessToken)
+        console.log(response.user)
+        router.push("/")
+      })
+  };
   
   const HandleForm = (event) => {
-    //event.preventDefault()
+    event.preventDefault()
     if (username === "" || email === "" || password === "" || confirmPassword === "") {
       return (
-        toast.error('Unable to log in with provided credentials.', {
+        toast.error("Unable to log in with provided credentials.", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -58,7 +65,7 @@ export default function SignUp({ theme, toggleTheme }) {
     
     if (password !== confirmPassword) {
       return (
-        toast.error('Passwords must be the same.', {
+        toast.error("Passwords must be the same.", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -69,29 +76,7 @@ export default function SignUp({ theme, toggleTheme }) {
         })
       );
     };
-  
-    clearErrs();
-    
-		const auth = getAuth();
-		createUserWithEmailAndPassword(auth, email, password)
-			.then(() => {
-				clearInput();
-				router.push('/login');
-			})
-			.catch((err) => {
-				const { code, message } = err;
-
-				if (
-					code === 'auth/email-already-in-use' ||
-					code === 'auth/invalid-email'
-				) {
-					setEmailErr(message);
-				}
-
-				if (code === 'auth/weak-password') {
-					setPasswordErr(message);
-				}
-			});
+    signUp()
   };
   
   useEffect(() => {
@@ -108,55 +93,47 @@ export default function SignUp({ theme, toggleTheme }) {
           <form>
             <input 
               type="text" 
-              required
               name="text"
               autoFocus={true}
               value={username}
               onChange={e => setUsername(e.target.value)}
               placeholder="Username"
-              err={usernameErr}
             />
             
             <input 
               type="email" 
-              required
               name="email"
               autoFocus={true}
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="Email"
-              err={emailErr}
             />
             
             <input 
               type="password"
-              required
               name="password"
               min="6"
               autoFocus={false}
               value={password}
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
-              err={passwordErr}
             />
             
             <input 
               type="password"
-              required
               name="password"
               min="6"
               autoFocus={false}
               value={confirmPassword}
               onChange={e => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
-              err={confirmPasswordErr}
             />
           
             <button onClick={HandleForm}>
               Sign up
             </button>
             
-            <button className={styles.Chrome} >
+            <button onClick={signUpWithGoogle} className={styles.Chrome} >
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
             </button>
           </form>

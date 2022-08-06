@@ -4,45 +4,37 @@ import Link from "next/link";
 import { Menu, MenuItem, Button, IconButton, FormControlLabel, Switch } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
+
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
-import { getAuth, signOut } from "../config/firebase";
-import { AuthContext } from "../components/context/AuthContext";
+import { app } from "../config/firebase";
 import styles from "../styles/Header.module.scss"
 
 export const Dropdown = ({ theme, toggleTheme }) => {
-  const { username, setUsername } = useContext(AuthContext);
-  const { email, setEmail } = useContext(AuthContext);
-  const { password, setPassword } = useContext(AuthContext);
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  let token = sessionStorage.getItem("Token")
+  let router = useRouter()
   
   const handleClick = () => {
     if (theme) {
       return setLoading(false);
     }
     return setLoading(true);
-  }
+  };
   
-  const handleLogout = () => {
-		const auth = getAuth();
-		signOut(auth)
-			.then(() => {
-				setEmail('');
-				setPassword('');
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+  const Logout = () => {
+		sessionStorage.removeItem("Token")
+    router.push("/")
 	};
 	
-  useEffect(() => {
-    const themeFromLocalStorage = JSON.parse(localStorage.getItem('theme'));
-    setLoading(themeFromLocalStorage);
-  }, []);
-  
   const options = [
     {
       id: 1,
@@ -56,6 +48,10 @@ export const Dropdown = ({ theme, toggleTheme }) => {
     }
   ];
   
+  useEffect(() => {
+    const themeFromLocalStorage = JSON.parse(localStorage.getItem("theme"));
+    setLoading(themeFromLocalStorage);
+  }, []);
   
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
@@ -66,14 +62,14 @@ export const Dropdown = ({ theme, toggleTheme }) => {
           </IconButton>
           
           <Menu className={styles.Menu} {...bindMenu(popupState)}>
-            {email !== '' ? (
+            {token !== null ? (
               <>
-      					<MenuItem className={styles.MenuItem}>
+                <MenuItem className={styles.MenuItem}>
       					  <label>
-      						  <p>{email}</p>
+      						  <p>Logado</p>
       					  </label>
       					</MenuItem>
-      					<MenuItem className={styles.MenuItem} onClick={handleLogout}>
+      					<MenuItem className={styles.MenuItem} onClick={Logout}>
       					  <label>
       						  <LogoutOutlinedIcon size={20} />
       						  <p>Logout</p>
@@ -82,26 +78,26 @@ export const Dropdown = ({ theme, toggleTheme }) => {
     					</>
     				) : (
     				  <>
-              {options.map((option) => (
-                <MenuItem key={option.id} className={styles.MenuItem} >
-                  <Link href={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`}>
-                    <label>
-                      {option.img}
-                      <p>
-                        {option.aOption}
-                      </p>
-                    </label>
-                  </Link>
-                </MenuItem>
-              ))}
-    				  </>
+                {options.map((option) => (
+                  <MenuItem key={option.id} className={styles.MenuItem} >
+                    <Link href={`/${option.aOption.replaceAll(" ", "-").toLowerCase()}`}>
+                      <label>
+                        {option.img}
+                        <p>
+                          {option.aOption}
+                        </p>
+                      </label>
+                    </Link>
+                  </MenuItem>
+                ))}
+      				</>
             )}
             
             <MenuItem className={styles.ThemeCheckbox}>
               <label>
                 <FormControlLabel
                   sx={{
-                    display: 'block',
+                    display: "block",
                   }}
                   control={
                     <Switch
