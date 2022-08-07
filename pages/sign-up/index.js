@@ -1,6 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+
+import GoogleIcon from "@mui/icons-material/Google";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -8,10 +12,6 @@ import {
     GithubAuthProvider,
     signInWithPopup
 } from "firebase/auth";
-
-import GoogleIcon from "@mui/icons-material/Google";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
   
 import { Header } from "../../components/Header";
 import { app } from "../../config/firebase";
@@ -29,25 +29,7 @@ export default function SignUp({ theme, toggleTheme }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const signUp = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        console.log(response.user)
-        sessionStorage.setItem("Token", response.user.accessToken);
-        router.push("/")
-      })
-  };
-
-  const signUpWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((response) => {
-        sessionStorage.setItem("Token", response.user.accessToken)
-        console.log(response.user)
-        router.push("/")
-      })
-  };
-  
-  const HandleForm = (event) => {
+  const signUp = (event) => {
     event.preventDefault()
     if (username === "" || email === "" || password === "" || confirmPassword === "") {
       return (
@@ -76,7 +58,22 @@ export default function SignUp({ theme, toggleTheme }) {
         })
       );
     };
-    signUp()
+    
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        console.log(response.user)
+        sessionStorage.setItem("Token", response.user.accessToken);
+        router.push("/")
+      })
+  };
+
+  const signUpWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((response) => {
+        sessionStorage.setItem("Token", response.user.accessToken)
+        console.log(response.user)
+        router.push("/")
+      })
   };
   
   useEffect(() => {
@@ -129,7 +126,7 @@ export default function SignUp({ theme, toggleTheme }) {
               placeholder="Confirm Password"
             />
           
-            <button onClick={HandleForm}>
+            <button onClick={signUp}>
               Sign up
             </button>
             

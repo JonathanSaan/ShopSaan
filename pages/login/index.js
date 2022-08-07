@@ -25,7 +25,8 @@ export default function Login({ theme, toggleTheme }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signUp = () => {
+  const login = (event) => {
+    event.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         console.log(response.user)
@@ -34,20 +35,20 @@ export default function Login({ theme, toggleTheme }) {
       })
       .catch(err => {
         return (
-            toast.error("Unable to log in with provided credentials.", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              progress: undefined,
-              draggable: true,
-            })
-          );
+          toast.error("Unable to log in with provided credentials.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+            draggable: true,
+          })
+        );
       })
   };
 
-  const signUpWithGoogle = () => {
+  const LoginWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((response) => {
         sessionStorage.setItem("Token", response.user.accessToken)
@@ -56,11 +57,6 @@ export default function Login({ theme, toggleTheme }) {
       })
   };
     
-  const HandleForm = (event) => {
-    event.preventDefault()
-    signUp()
-  };
-	
 	useEffect(() => {
     let token = sessionStorage.getItem("Token")
 
@@ -95,11 +91,11 @@ export default function Login({ theme, toggleTheme }) {
               placeholder="Password"
             />
           
-            <button onClick={HandleForm}>
+            <button onClick={login}>
               Login
             </button>
             
-            <button onClick={signUpWithGoogle} className={styles.Chrome}>
+            <button onClick={LoginWithGoogle} className={styles.Chrome}>
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
             </button>
           </form>
