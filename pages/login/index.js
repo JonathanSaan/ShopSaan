@@ -57,7 +57,7 @@ export default function Login({ theme, toggleTheme }) {
   };
     
   const HandleForm = (event) => {
-    //event.preventDefault()
+    event.preventDefault()
     signUp()
   };
 	
