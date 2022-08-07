@@ -46,6 +46,7 @@ const ThemeWhiteModal = {
 export default function Cart({ theme, toggleTheme }) {
   
   const [isOpen, setIsOpen] = useState(false);
+  let token = sessionStorage.getItem("Token")
   
   const router = useRouter();
   
@@ -60,11 +61,14 @@ export default function Cart({ theme, toggleTheme }) {
   } = useCart();
   
   const HandleCart = () => {
+    if (token === null) {
+      return router.push('/login'); 
+    }
+    
     setIsOpen(!isOpen);
     if (isOpen == true) {
       emptyCart();
     }
-    //return router.push('/login'); 
   };
   
   

@@ -66,7 +66,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
               <>
                 <MenuItem className={styles.MenuItem}>
       					  <label>
-      						  <p>Logado</p>
+      						  <p>Logged</p>
       					  </label>
       					</MenuItem>
       					<MenuItem className={styles.MenuItem} onClick={Logout}>
