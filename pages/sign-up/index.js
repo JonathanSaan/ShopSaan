@@ -1,6 +1,7 @@
-import { useEffect, useState, useContext } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
@@ -82,6 +83,13 @@ export default function SignUp({ theme, toggleTheme }) {
   
   return (
     <>
+      <Head>
+        <title>Sign up </title>
+        <meta name="description" content="sign up" />
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="store, ecommerce, register, signup, sign up" />
+        <meta name="author" content="JonathanSaan" />
+      </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
       <div className={theme ? styles.DarkMode : styles.LightMode}>
         <div className={styles.Container}>

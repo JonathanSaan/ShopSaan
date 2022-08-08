@@ -43,6 +43,18 @@ const ThemeWhiteModal = {
   }
 };
 
+const Metas = () => {
+  return (
+    <Head>
+      <title>Cart</title>
+      <meta name="description" content="cart" />
+      <meta charset="UTF-8" />
+      <meta name="keywords" content="store, ecommerce, product, organ, cart" />
+      <meta name="author" content="JonathanSaan" />
+    </Head>
+  );
+};
+
 export default function Cart({ theme, toggleTheme }) {
   
   const [isOpen, setIsOpen] = useState(false);
@@ -74,9 +86,7 @@ export default function Cart({ theme, toggleTheme }) {
   
   if (isEmpty) return (
     <>
-      <Head>
-        <title>Cart </title>
-      </Head>
+      <Metas />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <div className={ theme ? styles.DarkMode: styles.LightMode}>
         <div className={styles.Container}>
@@ -88,9 +98,7 @@ export default function Cart({ theme, toggleTheme }) {
 
   return (
     <>
-      <Head>
-        <title>Cart </title>
-      </Head>
+      <Metas />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <div className={ theme ? styles.DarkMode: styles.LightMode}>
         <div className={styles.Container}>

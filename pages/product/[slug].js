@@ -25,6 +25,10 @@ export default function Details({ theme, toggleTheme }) {
     <>
       <Head>
         <title>Product - {product.name}</title>
+        <meta name="description" content="product" />
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="store, ecommerce, product, organ" />
+        <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
       <div className={theme ? styles.DarkMode : styles.LightMode}>
