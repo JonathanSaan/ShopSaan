@@ -26,8 +26,8 @@ export default function Login({ theme, toggleTheme }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = () => {
-    //event.preventDefault()
+  const login = (event) => {
+    event.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         console.log(response.user)
@@ -80,7 +80,7 @@ export default function Login({ theme, toggleTheme }) {
         <div className={styles.Container}>
           <h1 className={styles.Title}>Login</h1>
           
-          <main>
+          <form>
             <input 
               htmlFor="email"
               type="email" 
@@ -106,7 +106,7 @@ export default function Login({ theme, toggleTheme }) {
             <button onClick={LoginWithGoogle} className={styles.Chrome}>
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
             </button>
-          </main>
+          </form>
           
           <p>
             Do not have an account? 
