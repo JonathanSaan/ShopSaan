@@ -26,8 +26,8 @@ export default function Login({ theme, toggleTheme }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = (event) => {
-    event.preventDefault()
+  const login = () => {
+    //event.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         console.log(response.user)
