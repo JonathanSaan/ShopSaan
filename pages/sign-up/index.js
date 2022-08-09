@@ -95,7 +95,7 @@ export default function SignUp({ theme, toggleTheme }) {
         <div className={styles.Container}>
           <h1 className={styles.Title}>Sign Up</h1>
           
-          <form>
+          <main>
             <input 
               type="text" 
               name="text"
@@ -141,7 +141,7 @@ export default function SignUp({ theme, toggleTheme }) {
             <button onClick={signUpWithGoogle} className={styles.Chrome} >
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
             </button>
-          </form>
+          </main>
           
           <p>
             Already have an account? 

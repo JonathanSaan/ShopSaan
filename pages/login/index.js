@@ -80,7 +80,7 @@ export default function Login({ theme, toggleTheme }) {
         <div className={styles.Container}>
           <h1 className={styles.Title}>Login</h1>
           
-          <form>
+          <main>
             <input 
               htmlFor="email"
               type="email" 
@@ -106,7 +106,7 @@ export default function Login({ theme, toggleTheme }) {
             <button onClick={LoginWithGoogle} className={styles.Chrome}>
               <GoogleIcon className={styles.ChromeIcon} size={25} /> Login with Google
             </button>
-          </form>
+          </main>
           
           <p>
             Do not have an account? 
