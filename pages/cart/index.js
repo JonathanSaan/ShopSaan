@@ -58,6 +58,7 @@ const Metas = () => {
 export default function Cart({ theme, toggleTheme }) {
   
   const [isOpen, setIsOpen] = useState(false);
+  const [showing, setShowing] = useState(false);
   let token = sessionStorage.getItem("Token")
   
   const router = useRouter();
@@ -83,6 +84,17 @@ export default function Cart({ theme, toggleTheme }) {
     }
   };
   
+  useEffect(() => {
+    setShowing(true);
+  }, []);
+  
+  if (!showing) {
+    return null;
+  }
+  
+  if (typeof window === 'undefined') {
+    return <></>;
+  }
   
   if (isEmpty) return (
     <>
