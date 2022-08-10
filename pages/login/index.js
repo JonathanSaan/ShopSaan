@@ -10,12 +10,11 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
-    GithubAuthProvider,
     signInWithPopup
 } from "firebase/auth";
 
-import { app } from "../../config/firebase";
 import { Header } from "../../components/Header";
+import { app } from "../../config/firebase";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {

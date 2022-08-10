@@ -10,7 +10,6 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     GoogleAuthProvider,
-    GithubAuthProvider,
     signInWithPopup
 } from "firebase/auth";
   
@@ -22,7 +21,6 @@ export default function SignUp({ theme, toggleTheme }) {
   
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
   const router = useRouter();
   
   const [username, setUsername] = useState("");
@@ -78,8 +76,12 @@ export default function SignUp({ theme, toggleTheme }) {
   };
   
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    let token = sessionStorage.getItem("Token")
+    
+    if(token){
+      router.push("/")
+    }
+  }, [])
   
   return (
     <>
