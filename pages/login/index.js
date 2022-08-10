@@ -59,7 +59,7 @@ export default function Login({ theme, toggleTheme }) {
     
 	useEffect(() => {
     let token = sessionStorage.getItem("Token")
-
+    
     if(token){
       router.push("/")
     }
