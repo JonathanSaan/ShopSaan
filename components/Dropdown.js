@@ -20,12 +20,8 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  let token = false
+  let token = sessionStorage.getItem("Token");
   let router = useRouter();
-  
-  if (typeof window !== 'undefined') {
-    token = sessionStorage.getItem("Token");
-  }
   
   const handleClick = () => {
     if (theme) {
