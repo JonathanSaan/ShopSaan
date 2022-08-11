@@ -53,7 +53,6 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   ];
   
   useEffect(() => {
-    //let token = JSON.parse(sessionStorage.getItem("Token"));
     const themeFromLocalStorage = JSON.parse(localStorage.getItem("theme"));
     setLoading(themeFromLocalStorage);
   }, []);

@@ -47,9 +47,13 @@ const ThemeWhiteModal = {
 export default function Cart({ theme, toggleTheme }) {
   
   const [isOpen, setIsOpen] = useState(false);
-  let token = sessionStorage.getItem("Token")
+  let token = false;
   
   const router = useRouter();
+  
+   if (typeof window !== 'undefined') {
+    token = sessionStorage.getItem("Token");
+  };
   
   const {
     totalUniqueItems,
