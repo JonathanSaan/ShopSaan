@@ -43,17 +43,6 @@ const ThemeWhiteModal = {
   }
 };
 
-const Metas = () => {
-  return (
-    <Head>
-      <title>Cart</title>
-      <meta name="description" content="cart" />
-      <meta charset="UTF-8" />
-      <meta name="keywords" content="store, ecommerce, product, organ, cart" />
-      <meta name="author" content="JonathanSaan" />
-    </Head>
-  );
-};
 
 export default function Cart({ theme, toggleTheme }) {
   
@@ -63,7 +52,6 @@ export default function Cart({ theme, toggleTheme }) {
   const router = useRouter();
   
   const {
-    isEmpty,
     totalUniqueItems,
     cartTotal,
     items,
@@ -83,75 +71,79 @@ export default function Cart({ theme, toggleTheme }) {
     }
   };
   
-  if (isEmpty) return (
-    <>
-      <Metas />
-      <Header theme={theme} toggleTheme={toggleTheme} />
-      <div className={ theme ? styles.DarkMode: styles.LightMode}>
-        <div className={styles.Container}>
-          <h1 className={styles.Title}>Your Cart is Empty</h1>
-        </div>
-      </div>
-    < />
-  );
-
   return (
     <>
-      <Metas />
+      <Head>
+        <title>Cart</title>
+        <meta name="description" content="cart" />
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="store, ecommerce, product, organ, cart" />
+        <meta name="author" content="JonathanSaan" />
+      </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
       <div className={ theme ? styles.DarkMode: styles.LightMode}>
         <div className={styles.Container}>
-          <h1 className={styles.Title}>Cart ({totalUniqueItems})</h1>
+          {items.length > 0 ? 
+            <h1 className={styles.Title}>Cart ({totalUniqueItems})</h1>
+            :
+              <h1 className={styles.Title}>Your Cart is Empty</h1>
+          }
           <div className={styles.ListProducts}>
-            {items.map((item) => (
-              <div className={styles.Product} key={item.id}>
-                <CardMedia
-                  component="img"
-                  image={item.img}
-                  title={item.name}
-                  className={styles.Image}
-                  loading="lazy"
-                ></CardMedia>
-                <div className={styles.Details}>
-                  <Link key={item.id} href={`product/${item.slug}`}>
-                    <a className={styles.Name}>
-                      {item.name}
-                    </a>
-                  </Link>
-                  <p onClick={() => removeItem(item.id)} className={styles.Remove}>
-                    remove
-                  </p>
-              </div>
-              <div className={styles.Right}>
-                <p className={styles.Price}>
-                  ${item.price}
+            {items.length > 0 ?
+              <>
+                {items.map((item) => (
+                  <div className={styles.Product} key={item.id}>
+                    <CardMedia
+                      component="img"
+                      image={item.img}
+                      title={item.name}
+                      className={styles.Image}
+                      loading="lazy"
+                    ></CardMedia>
+                    <div className={styles.Details}>
+                      <Link key={item.id} href={`product/${item.slug}`}>
+                        <a className={styles.Name}>
+                          {item.name}
+                        </a>
+                      </Link>
+                      <p onClick={() => removeItem(item.id)} className={styles.Remove}>
+                        remove
+                      </p>
+                  </div>
+                  <div className={styles.Right}>
+                    <p className={styles.Price}>
+                      ${item.price}
+                    </p>
+                    <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                      >
+                        -
+                    </button>
+                    <button className={styles.Quantity}>
+                      <p>
+                        {item.quantity}
+                      </p>
+                      </button>
+                      <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))}
+                <p className={styles.Total}>
+                  Total:
+                  <span>
+                    ${cartTotal}
+                  </span>
                 </p>
-                <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-                  >
-                    -
+                <button onClick={HandleCart} className={styles.Checkout}>
+                  checkout
                 </button>
-                <button className={styles.Quantity}>
-                  <p>
-                    {item.quantity}
-                  </p>
-                  </button>
-                  <button className={styles.UpdateItemQuantity} onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            ))}
+              </>
+              :
+              null
+            }
           </div>
-          <p className={styles.Total}>
-            Total:
-            <span>
-              ${cartTotal}
-            </span>
-          </p>
-          <button onClick={HandleCart} className={styles.Checkout}>
-            checkout
-          </button>
         </div>
         
         <Modal

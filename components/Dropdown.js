@@ -20,8 +20,12 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  let token = sessionStorage.getItem("Token")
-  let router = useRouter()
+  let token = false
+  let router = useRouter();
+  
+  if (typeof window !== 'undefined') {
+    token = sessionStorage.getItem("Token");
+  }
   
   const handleClick = () => {
     if (theme) {
@@ -31,8 +35,8 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   };
   
   const Logout = () => {
-		sessionStorage.removeItem("Token")
-    router.push("/")
+		sessionStorage.removeItem("Token");
+    router.push("/");
 	};
 	
   const options = [
@@ -49,6 +53,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   ];
   
   useEffect(() => {
+    //let token = JSON.parse(sessionStorage.getItem("Token"));
     const themeFromLocalStorage = JSON.parse(localStorage.getItem("theme"));
     setLoading(themeFromLocalStorage);
   }, []);
