@@ -158,6 +158,6 @@ export default function Cart({ theme, toggleTheme }) {
           <button onClick={HandleCart} style={{ margin: '1em 0 0 15em', padding: '.5em 1em' }} >Ok</button>
         </Modal>
       </div>
-    < />
+    </>
   );
 };
