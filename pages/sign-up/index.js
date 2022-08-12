@@ -3,13 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import GoogleIcon from "@mui/icons-material/Google";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    GoogleAuthProvider,
     signInWithPopup
 } from "firebase/auth";
   
@@ -20,7 +18,6 @@ import styles from "../../styles/SignUp.module.scss";
 export default function SignUp({ theme, toggleTheme }) {
   
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
   const router = useRouter();
   
   const [username, setUsername] = useState("");
@@ -65,23 +62,14 @@ export default function SignUp({ theme, toggleTheme }) {
         router.push("/")
       })
   };
-
-  const signUpWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((response) => {
-        sessionStorage.setItem("Token", response.user.accessToken)
-        console.log(response.user)
-        router.push("/")
-      })
-  };
   
   useEffect(() => {
-    let token = sessionStorage.getItem("Token")
+    let token = sessionStorage.getItem("Token");
     
     if(token){
       router.push("/")
-    }
-  }, [])
+    };
+  }, []);
   
   return (
     <>
@@ -138,10 +126,6 @@ export default function SignUp({ theme, toggleTheme }) {
           
             <button onClick={signUp}>
               Sign up
-            </button>
-            
-            <button onClick={signUpWithGoogle} className={styles.Chrome} >
-              <GoogleIcon className={styles.ChromeIcon} size={25} /> Sign up with Google
             </button>
           </form>
           

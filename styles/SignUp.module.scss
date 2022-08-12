@@ -7,7 +7,7 @@
   .Container {
     background-color: #f5f7f6;
     margin: 4em 0;
-    height: 44em;
+    height: auto;
     width: 23em;
 
     .Title {
@@ -46,7 +46,7 @@
         background-color: #000;
         box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
         color: #FFF;
-        margin: 2em 0 -1em 0;
+        margin: 2em 0;
         height: 5vw;
         width: 30vw;
   
@@ -57,24 +57,11 @@
           transition: 200ms;
         }
       }
-      
-      .Chrome {
-        background-color: #e4e4e4;
-        color: #000;
-  
-        .ChromeIcon {
-          margin: 0 .5em 0 0;
-        }
-        
-        &:hover {
-          filter: Brightness(0.8);
-        }
-      }
     }
 
     p {
       font-size: .8em;
-      margin: 10em 0 5em 0;
+      margin: 10em 0 2em 0;
       color: #000;
       text-align: center;
 
@@ -98,7 +85,7 @@
   .Container {
     background-color: #1B1B1E;
     margin: 4em 0;
-    height: 44em;
+    height: auto;
     width: 23em;
 
     .Title {
@@ -136,7 +123,7 @@
         border-radius: .5em;
         background-color: #5E5CE5;
         color: #FFF;
-        margin: 2em 0 -1em 0;
+        margin: 2em 0;
         height: 5vw;
         width: 30vw;
   
@@ -145,20 +132,11 @@
           transition: 200ms;
         }
       }
-      
-      .Chrome {
-        background-color: #e4e4e4;
-        color: #000;
-  
-        .ChromeIcon {
-          margin: 0 .5em 0 0;
-        }
-      }
     }
 
     p {
       font-size: .8em;
-      margin: 10em 0 5em 0;
+      margin: 10em 0 2em 0;
       color: #FFF;
       text-align: center;
 
