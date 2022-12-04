@@ -42,6 +42,7 @@
         justify-content: center;
         align-items: center;
         border: none;
+        cursor: pointer;
         border-radius: .5em;
         background-color: #000;
         box-shadow: rgba(0,0,0,0.14) 0px 2px 2px 0px;
@@ -50,7 +51,7 @@
         height: 5vw;
         width: 30vw;
   
-        &:hover {
+        &:active {
           background-color: #f5f7f6;
           border: 1px solid #000;
           color: #000;
@@ -121,13 +122,14 @@
         align-items: center;
         border: none;
         border-radius: .5em;
+        cursor: pointer;
         background-color: #5E5CE5;
         color: #FFF;
         margin: 2em 0;
         height: 5vw;
         width: 30vw;
   
-        &:hover {
+        &:active {
           filter: Brightness(0.8);
           transition: 200ms;
         }

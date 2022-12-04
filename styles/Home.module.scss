@@ -15,6 +15,7 @@
       flex-direction: column;
       margin: 0 auto 1.5em auto;
       padding: 1.3em 1em 1em 1em;
+      cursor: pointer;
       height: 13em;
       width: 10.5em;
       transition: 200ms;
@@ -47,7 +48,7 @@
         }
       }
       
-      &:active {
+      &:hover {
         transition: 350ms;
         border: 1px solid #000;
       }
@@ -76,6 +77,7 @@
       flex-direction: column;
       margin: 0 auto 1.5em auto;
       padding: 1.3em 1em 1em 1em;
+      cursor: pointer;
       height: 13em;
       width: 10.5em;
       transition: 200ms;
