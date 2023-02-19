@@ -1,16 +1,16 @@
-.LightMode {
+.lightMode {
   background-color: #f5f7f6;
   min-height: 100vh;
   padding: 6em 0 0 0;
   transition: 200ms;
   
-  .Container {
+  .container {
     display: flex;
     margin: 0 auto;
     width: 40em;
     flex-wrap: wrap;
     
-    .Product {
+    .container_item {
       display: flex;
       flex-direction: column;
       margin: 0 auto 1.5em auto;
@@ -22,26 +22,26 @@
       background-color: #FFF;
       z-index: 2;
       
-      .image {
+      .container_itemImage {
         margin: 0 auto;
         height: 6em;
         width: 6em;
       }
       
-      .ListItem {
+      .container_item_details {
         display: inline-block;
         margin: 1em 0 0 0;
         width: 4em;
         padding: 0;
         
-        .ProductName {
+        .container_item_detailsTitle {
           height: 1.2em;
           transition: 200ms;
           font-size: 1em;
           margin: .7em 0 .3em 0;
         }
         
-        .ProductPrice {
+        .container_item_detailsPrice {
           color: gray;
           font-size: .8em;
           margin: 0;
@@ -60,19 +60,19 @@
   }
 }
 
-.DarkMode {
+.darkMode {
   background-color: #2A2D34;
   min-height: 100vh;
   padding: 6em 0 0 0;
   transition: 200ms;
 
-  .Container {
+  .container {
     display: flex;
     margin: 0 auto;
     width: 40em;
     flex-wrap: wrap;
     
-    .Product {
+    .container_item {
       display: flex;
       flex-direction: column;
       margin: 0 auto 1.5em auto;
@@ -83,19 +83,19 @@
       transition: 200ms;
       background-color: #1B1B1E;
       
-      .image {
+      .container_itemImage {
         margin: 0 auto;
         height: 6em;
         width: 6em;
       }
       
-      .ListItem {
+      .container_item_details {
         display: inline-block;
         margin: 1em 0 0 0;
         width: 4em;
         padding: 0;
         
-        .ProductName {
+        .container_item_detailsTitle {
           height: 1.2em;
           transition: 200ms;
           color: #FFF;
@@ -103,7 +103,7 @@
           margin: .7em 0 .3em 0;
         }
         
-        .ProductPrice {
+        .container_item_detailsPrice {
           color: gray;
           font-size: .8em;
           margin: 0;
@@ -123,14 +123,14 @@
 }
 
 @media (max-width: 700px) {
-  .LightMode {
-    .Container {
+  .lightMode {
+    .container {
       width: 100%;
     }
   }
   
-  .DarkMode {
-    .Container {
+  .darkMode {
+    .container {
       width: 100%;
     }
   }

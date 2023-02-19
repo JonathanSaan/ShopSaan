@@ -9,9 +9,7 @@ import { Header } from "../components/Header";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.scss";
 
-
 export default function Home({ theme, toggleTheme }) {
-  
   return (
     <>
       <Head>
@@ -22,24 +20,24 @@ export default function Home({ theme, toggleTheme }) {
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
-      <div className={theme ? styles.DarkMode : styles.LightMode}>
-        <div className={styles.Container}>
+      <div className={theme ? styles.darkMode : styles.lightMode}>
+        <div className={styles.container}>
           {data.map((product) => (
             <>
             <Link key={product.id} href={`product/${product.slug}`}>
-              <Grid item md="4" className={styles.Product}>
+              <Grid item md="4" className={styles.container_item}>
                 <CardMedia
                   component="img"
                   image={product.img}
                   title={product.name}
-                  className={styles.image}
+                  className={styles.container_itemImage}
                   loading="lazy"
                 ></CardMedia>
-                <ListItem className={styles.ListItem}>
-                  <Typography className={styles.ProductName}>
+                <ListItem className={styles.container_item_details}>
+                  <Typography className={styles.container_item_detailsTitle}>
                     {product.name}
                   </Typography>
-                  <Typography className={styles.ProductPrice}>
+                  <Typography className={styles.container_item_detailsPrice}>
                     ${product.price}
                   </Typography>
                 </ListItem>

@@ -10,7 +10,6 @@ import { Header } from "../../components/Header";
 import styles from "../../styles/Product.module.scss";
 
 export default function Details({ theme, toggleTheme }) {
-  
   const router = useRouter();
   const { slug } = router.query;
   const product = data.find((a) => a.slug === slug);
@@ -31,22 +30,22 @@ export default function Details({ theme, toggleTheme }) {
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme}/>
-      <div className={theme ? styles.DarkMode : styles.LightMode}>
-        <div className={styles.Container}>
+      <div className={theme ? styles.darkMode : styles.lightMode}>
+        <div className={styles.product}>
           <CardMedia
             component="img"
             image={product.img}
             title={product.name}
-            className={styles.Image}
+            className={styles.productImage}
             loading="lazy"
           ></CardMedia>
-          <Typography className={styles.ProductName}>
+          <Typography className={styles.productName}>
             {product.name}
           </Typography>
-          <Typography className={styles.ProductPrice}>
+          <Typography className={styles.productPrice}>
             ${product.price} 
           </Typography>
-          <button onClick={() => addItem(product)}>
+          <button onClick={() => addItem(product)} className={styles.productButton}>
             Add to cart
           </button>
         </div>
