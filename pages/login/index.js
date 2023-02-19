@@ -86,7 +86,7 @@ export default function Login({ theme, toggleTheme }) {
               placeholder="Password"
             />
           
-            <button className={styles.login_container_formButton}>
+            <button type="submit" className={styles.login_container_formButton}>
               Login
             </button>
           </form>

@@ -125,7 +125,7 @@ export default function SignUp({ theme, toggleTheme }) {
               placeholder="Confirm Password"
             />
           
-            <button className={styles.signup_container_formButton}>
+            <button type="submit" className={styles.signup_container_formButton}>
               Sign up
             </button>
           </form>
