@@ -82,14 +82,14 @@ export default function SignUp({ theme, toggleTheme }) {
       <div className={theme ? styles.darkMode : styles.lightMode}>
         <div className={styles.signup_container}>
           <h1 className={styles.signup_containerTitle}>Sign Up</h1>
-          <form className={styles.signup_container_form}>
+          <form className={styles.signup_container_form} onSubmit={signUp}>
             <input
               htmlFor="text"
               type="text"
               className={styles.signup_container_form_textInput}
               autoFocus={true}
               value={username}
-              onChange={(event) => setUsername(event.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               placeholder="Username"
             />
             
@@ -99,7 +99,7 @@ export default function SignUp({ theme, toggleTheme }) {
               className={styles.signup_container_form_textInput}
               autoFocus={true}
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
             />
             
@@ -110,7 +110,7 @@ export default function SignUp({ theme, toggleTheme }) {
               className={styles.signup_container_form_textInput}
               autoFocus={false}
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
             
@@ -121,11 +121,11 @@ export default function SignUp({ theme, toggleTheme }) {
               className={styles.signup_container_form_textInput}
               autoFocus={false}
               value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
             />
           
-            <button onClick={signUp} className={styles.signup_container_formButton}>
+            <button className={styles.signup_container_formButton}>
               Sign up
             </button>
           </form>

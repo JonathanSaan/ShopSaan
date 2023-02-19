@@ -64,14 +64,14 @@ export default function Login({ theme, toggleTheme }) {
       <div className={theme ? styles.darkMode : styles.lightMode}>
         <div className={styles.login_container}>
           <h1 className={styles.login_containerTitle}>Login</h1>
-          <form className={styles.login_container_form}>
+          <form className={styles.login_container_form} onSubmit={login}>
             <input 
               htmlFor="email"
               type="email"
               className={styles.login_container_form_textInput}
               autoFocus={true}
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
             />
 
@@ -82,11 +82,11 @@ export default function Login({ theme, toggleTheme }) {
               className={styles.login_container_form_textInput}
               autoFocus={false}
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
           
-            <button onClick={login} className={styles.login_container_formButton}>
+            <button className={styles.login_container_formButton}>
               Login
             </button>
           </form>
