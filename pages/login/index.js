@@ -64,7 +64,7 @@ export default function Login({ theme, toggleTheme }) {
       <div className={theme ? styles.darkMode : styles.lightMode}>
         <div className={styles.login_container}>
           <h1 className={styles.login_containerTitle}>Login</h1>
-          <form className={styles.login_container_form} onSubmit={login}>
+          <form className={styles.login_container_form}>
             <input 
               htmlFor="email"
               type="email"
@@ -86,7 +86,7 @@ export default function Login({ theme, toggleTheme }) {
               placeholder="Password"
             />
           
-            <button type="submit" className={styles.login_container_formButton}>
+            <button onClick={login} className={styles.login_container_formButton}>
               Login
             </button>
           </form>

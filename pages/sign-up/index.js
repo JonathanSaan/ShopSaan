@@ -82,7 +82,7 @@ export default function SignUp({ theme, toggleTheme }) {
       <div className={theme ? styles.darkMode : styles.lightMode}>
         <div className={styles.signup_container}>
           <h1 className={styles.signup_containerTitle}>Sign Up</h1>
-          <form className={styles.signup_container_form} onSubmit={signUp}>
+          <form className={styles.signup_container_form}>
             <input
               htmlFor="text"
               type="text"
@@ -125,7 +125,7 @@ export default function SignUp({ theme, toggleTheme }) {
               placeholder="Confirm Password"
             />
           
-            <button type="submit" className={styles.signup_container_formButton}>
+            <button onClick={signUp} className={styles.signup_container_formButton}>
               Sign up
             </button>
           </form>
