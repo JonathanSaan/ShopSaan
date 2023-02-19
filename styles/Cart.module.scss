@@ -1,42 +1,42 @@
-.LightMode {
+.lightMode {
   background-color: #f5f7f6;
   min-height: 100vh;
   padding: 4em 0 1em 0;
   transition: 200ms;
 
-  .Container {
+  .card {
     margin: 0 auto;
     min-height: 10em;
     width: 50%;
 
-    .Title {
+    .cardTitle {
       text-align: center;
       margin: .5em 0 1em;
     }
 
-    .ListProducts {
+    .card_container {
       margin: 0 0 2em 0;
 
-      .Product {
+      .card_container_item {
         display: flex;
         height: 7em;
         width: 100%;
         align-items: center;
         border-bottom: .5px solid #000;
 
-        .Image {
+        .card_container_itemImage {
           height: 5em;
           width: 5em;
         }
 
-        .Details {
+        .card_container_item_detail {
           margin: 0 0 0 .5em;
 
-          .Name {
+          .card_container_item_detailName {
             font-weight: 600;
           }
 
-          .Remove {
+          .card_container_item_detailRemove {
             cursor: pointer;
             font-size: .6em;
             height: 1.5em;
@@ -47,13 +47,13 @@
           }
         }
 
-        .Right {
+        .card_container_item_rightdetail {
           display: flex;
           align-items: center;
           min-width: 8em;
           margin: 0 0 0 auto;
 
-          .Price {
+          .card_container_item_rightdetailPrice {
             margin: 0 1vw 0 auto;
           }
 
@@ -90,17 +90,17 @@
       }
     }
 
-    .Total {
+    .card_containerTotalPrice {
       margin: 35vh 0 1em .5em;
       font-weight: 600;
 
-      span {
+      .card_containerTotalPriceNumber {
         margin: 0 0 0 .3em;
         font-weight: 400;
       }
     }
 
-    .Checkout {
+    .card_containerPayButton {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -126,47 +126,47 @@
 }
 
 
-.DarkMode {
+.darkMode {
   background-color: #1B1B1E;
   min-height: 100vh;
   padding: 4em 0 1em 0;
   transition: 200ms;
 
-  .Container {
+  .card {
     margin: 0 auto;
     min-height: 10em;
     width: 50%;
 
-    .Title {
+    .cardTitle {
       text-align: center;
       margin: .5em 0 1em;
       color: #FFF;
     }
 
-    .ListProducts {
+    .card_container {
       margin: 0 0 2em 0;
 
-      .Product {
+      .card_container_item {
         display: flex;
         height: 7em;
         width: 100%;
         align-items: center;
         border-bottom: .5px solid gray;
 
-        .Image {
+        .card_container_itemImage {
           height: 5em;
           width: 5em;
         }
 
-        .Details {
+        .card_container_item_leftdetail {
           margin: 0 0 0 .5em;
 
-          .Name {
+          .card_container_item_leftdetailName {
             color: #FFF;
             font-weight: 600;
           }
 
-          .Remove {
+          .card_container_item_leftdetailRemove {
             font-size: .6em;
             height: 1.5em;
             width: 4em;
@@ -178,13 +178,13 @@
           }
         }
 
-        .Right {
+        .card_container_item_rightdetail {
           display: flex;
           align-items: center;
           min-width: 8em;
           margin: 0 0 0 auto;
 
-          .Price {
+          .card_container_item_rightdetailPrice {
             margin: 0 1vw 0 auto;
             color: lightgray;
           }
@@ -222,18 +222,18 @@
       }
     }
 
-    .Total {
+    .card_containerTotalPrice {
       margin: 35vh 0 1em .5em;
       color: #FFF;
       font-weight: 600;
 
-      span {
+      .card_containerTotalPriceNumber {
         margin: 0 0 0 .3em;
         font-weight: 400;
       }
     }
 
-    .Checkout {
+    .card_containerPayButton {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -256,14 +256,14 @@
 }
 
 @media (max-width: 800px) {
-  .LightMode {
-    .Container {
+  .lightMode {
+    .card {
       width: 90%;
     }
   }
 
-  .DarkMode {
-    .Container {
+  .darkMode {
+    .card {
       width: 90%;
     }
   }
