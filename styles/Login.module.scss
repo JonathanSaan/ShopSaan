@@ -1,34 +1,35 @@
-.LightMode {
+.lightMode {
   display: flex;
   justify-content: center;
   background-color: #f5f7f6;
   min-height: 100vh;
 
-  .Container {
+  .login_container {
     background-color: #f5f7f6;
     margin: 4em 0;
     height: auto;
     width: 23em;
 
-    .Title {
+    .login_containerTitle {
       color: #000;
       text-align: center;
       margin: 1.5em 0;
     }
 
-    form {
+    .login_container_form {
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      input {
+      .login_container_form_textInput {
         border: 1px solid #e0dee4;
         outline: none;
         border-radius: .5em;
         background-color: #F4F3F5;
         margin: .5em 5vw;
-        padding: 0 0 0 2vw;
-        height: 5vw;
+        padding: 0 0 0 1.5vw;
+        font-size: 1vw;
+        height: 4vw;
         width: 30vw;
         
         &:focus {
@@ -37,7 +38,7 @@
         }
       }
 
-      button {
+      .login_container_formButton {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -48,7 +49,7 @@
         cursor: pointer;
         color: #FFF;
         margin: 2em 0 -1em 0;
-        height: 5vw;
+        height: 4vw;
         width: 30vw;
 
         &:active {
@@ -77,37 +78,38 @@
   }
 }
 
-.DarkMode {
+.darkMode {
   display: flex;
   justify-content: center;
   background-color: #1B1B1E;
   min-height: 100vh;
 
-  .Container {
+  .login_container {
     background-color: #1B1B1E;
     margin: 4em 0;
     height: auto;
     width: 23em;
 
-    .Title {
+    .login_containerTitle {
       color: #FFF;
       text-align: center;
       margin: 1.5em 0;
     }
 
-    form {
+    .login_container_form {
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      input {
+      .login_container_form_textInput {
         border: 1px solid #e0dee4;
         outline: none;
         border-radius: .5em;
         background-color: #F4F3F5;
         margin: .5em 5vw;
-        padding: 0 0 0 2vw;
-        height: 5vw;
+        padding: 0 0 0 1.5vw;
+        font-size: 1vw;
+        height: 4vw;
         width: 30vw;
         
         &:focus {
@@ -116,7 +118,7 @@
         }
       }
 
-      button {
+      .login_container_formButton {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -126,7 +128,7 @@
         cursor: pointer;
         color: #FFF;
         margin: 2em 0 -1em 0;
-        height: 5vw;
+        height: 4vw;
         width: 30vw;
 
         &:active {
@@ -155,17 +157,18 @@
 
 
 @media screen and (max-width: 800px) {
-  .LightMode {
-    .Container {
+  .lightMode {
+    .login_container {
       width: 90vw;
 
-      form {
-        input {
+      .login_container_form {
+        .login_container_form_textInput {
+          font-size: 2vw;
           height: 4em;
           width: 80vw;
         }
 
-        button {
+        .login_container_formButton {
           height: 4em;
           width: 80vw;
         }
@@ -173,17 +176,18 @@
     }
   }
 
-  .DarkMode {
-    .Container {
+  .darkMode {
+    .login_container {
       width: 90vw;
 
-      form {
-        input {
+      .login_container_form {
+        .login_container_form_textInput {
+          font-size: 2vw;
           height: 4em;
           width: 80vw;
         }
 
-        button {
+        .login_container_formButton {
           height: 4em;
           width: 80vw;
         }

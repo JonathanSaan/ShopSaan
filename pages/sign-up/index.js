@@ -16,7 +16,6 @@ import { app } from "../../config/firebase";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
-  
   const auth = getAuth();
   const router = useRouter();
   
@@ -26,7 +25,7 @@ export default function SignUp({ theme, toggleTheme }) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const signUp = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (username === "" || email === "" || password === "" || confirmPassword === "") {
       return (
         toast.error("Unable to log in with provided credentials.", {
@@ -57,9 +56,8 @@ export default function SignUp({ theme, toggleTheme }) {
     
     createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        console.log(response.user)
         sessionStorage.setItem("Token", response.user.accessToken);
-        router.push("/")
+        router.push("/");
       })
   };
   
@@ -67,64 +65,67 @@ export default function SignUp({ theme, toggleTheme }) {
     let token = sessionStorage.getItem("Token");
     
     if(token){
-      router.push("/")
+      router.push("/");
     };
   }, []);
   
   return (
     <>
       <Head>
-        <title>Sign up </title>
+        <title>Sign up</title>
         <meta name="description" content="sign up" />
         <meta charset="UTF-8" />
         <meta name="keywords" content="store, ecommerce, register, signup, sign up" />
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <div className={theme ? styles.DarkMode : styles.LightMode}>
-        <div className={styles.Container}>
-          <h1 className={styles.Title}>Sign Up</h1>
-          
-          <form>
-            <input 
-              type="text" 
-              name="text"
+      <div className={theme ? styles.darkMode : styles.lightMode}>
+        <div className={styles.signup_container}>
+          <h1 className={styles.signup_containerTitle}>Sign Up</h1>
+          <form className={styles.signup_container_form} onSubmit={signUp}>
+            <input
+              htmlFor="text"
+              type="text"
+              className={styles.signup_container_form_textInput}
               autoFocus={true}
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={(event) => setUsername(event.target.value)}
               placeholder="Username"
             />
             
             <input 
-              type="email" 
-              name="email"
+              htmlFor="email"
+              type="email"
+              className={styles.signup_container_form_textInput}
               autoFocus={true}
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
             />
             
             <input 
+              htmlFor="password"
               type="password"
-              name="password"
               min="6"
+              className={styles.signup_container_form_textInput}
               autoFocus={false}
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
             />
             
             <input 
+              htmlFor="password"
               type="password"
-              name="password"
               min="6"
+              className={styles.signup_container_form_textInput}
               autoFocus={false}
               value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}
+              onChange={(event) => setConfirmPassword(event.target.value)}
               placeholder="Confirm Password"
             />
           
-            <button onClick={signUp}>
+            <button className={styles.signup_container_formButton}>
               Sign up
             </button>
           </form>

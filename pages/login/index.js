@@ -16,19 +16,17 @@ import { app } from "../../config/firebase";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {
-  
   const auth = getAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const login = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        console.log(response.user)
         sessionStorage.setItem("Token", response.user.accessToken);
-        router.push("/")
+        router.push("/");
       })
       .catch(err => {
         return (
@@ -49,44 +47,46 @@ export default function Login({ theme, toggleTheme }) {
     let token = sessionStorage.getItem("Token");
     
     if(token){
-      router.push("/")
+      router.push("/");
     };
   }, []);
   
   return (
     <>
       <Head>
-        <title>Login </title>
+        <title>Login</title>
         <meta name="description" content="login" />
         <meta charset="UTF-8" />
         <meta name="keywords" content="store, ecommerce, login, sign in, signin" />
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <div className={theme ? styles.DarkMode : styles.LightMode}>
-        <div className={styles.Container}>
-          <h1 className={styles.Title}>Login</h1>
-          
-          <form>
+      <div className={theme ? styles.darkMode : styles.lightMode}>
+        <div className={styles.login_container}>
+          <h1 className={styles.login_containerTitle}>Login</h1>
+          <form className={styles.login_container_form} onSubmit={login}>
             <input 
               htmlFor="email"
-              type="email" 
+              type="email"
+              className={styles.login_container_form_textInput}
               autoFocus={true}
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
             />
+
             <input 
               type="password"
               htmlFor="password"
-              autoFocus={false}
               min="6"
+              className={styles.login_container_form_textInput}
+              autoFocus={false}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
             />
           
-            <button onClick={login}>
+            <button className={styles.login_container_formButton}>
               Login
             </button>
           </form>
