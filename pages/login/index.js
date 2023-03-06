@@ -5,14 +5,9 @@ import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    signInWithPopup
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { Header } from "../../components/Header";
-import { app } from "../../config/firebase";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {
@@ -28,36 +23,37 @@ export default function Login({ theme, toggleTheme }) {
         sessionStorage.setItem("Token", response.user.accessToken);
         router.push("/");
       })
-      .catch(err => {
-        return (
-          toast.error("Unable to log in with provided credentials.", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            draggable: true,
-          })
-        );
-      })
+      .catch((err) => {
+        return toast.error("Unable to log in with provided credentials.", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+          draggable: true,
+        });
+      });
   };
-  
-	useEffect(() => {
+
+  useEffect(() => {
     let token = sessionStorage.getItem("Token");
-    
-    if(token){
+
+    if (token) {
       router.push("/");
-    };
+    }
   }, []);
-  
+
   return (
     <>
       <Head>
         <title>Login</title>
         <meta name="description" content="login" />
         <meta charset="UTF-8" />
-        <meta name="keywords" content="store, ecommerce, login, sign in, signin" />
+        <meta
+          name="keywords"
+          content="store, ecommerce, login, sign in, signin"
+        />
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
@@ -65,7 +61,7 @@ export default function Login({ theme, toggleTheme }) {
         <div className={styles.login_container}>
           <h1 className={styles.login_containerTitle}>Login</h1>
           <form className={styles.login_container_form} onSubmit={login}>
-            <input 
+            <input
               htmlFor="email"
               type="email"
               className={styles.login_container_form_textInput}
@@ -75,7 +71,7 @@ export default function Login({ theme, toggleTheme }) {
               placeholder="Email"
             />
 
-            <input 
+            <input
               type="password"
               htmlFor="password"
               min="6"
@@ -85,21 +81,19 @@ export default function Login({ theme, toggleTheme }) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
-          
-            <button className={styles.login_container_formButton}>
-              Login
-            </button>
+
+            <button className={styles.login_container_formButton}>Login</button>
           </form>
-          
+
           <p>
-            Do not have an account? 
+            Do not have an account?
             <Link href={`/sign-up`}>
               <a>Create new one </a>
             </Link>
           </p>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </>
   );
-};
+}

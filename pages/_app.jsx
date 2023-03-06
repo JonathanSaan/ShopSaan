@@ -6,36 +6,35 @@ import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(false);
-  
+
   const [showing, setShowing] = useState(false);
-  
+
   const toggleTheme = () => {
-    setTheme(theme => {
-      localStorage.setItem('theme', JSON.stringify(!theme));
+    setTheme((theme) => {
+      localStorage.setItem("theme", JSON.stringify(!theme));
       return !theme;
     });
   };
-  
+
   useEffect(() => {
-    const themeFromLocalStorage = JSON.parse(localStorage.getItem('theme'));
+    const themeFromLocalStorage = JSON.parse(localStorage.getItem("theme"));
     setTheme(themeFromLocalStorage);
     setShowing(true);
   }, []);
 
-
   if (!showing) {
     return null;
   }
-  
-  if (typeof window === 'undefined') {
+
+  if (typeof window === "undefined") {
     return <></>;
-  } 
-  
+  }
+
   return (
     <CartProvider>
-      <Component {...pageProps} theme={theme} toggleTheme={toggleTheme}/>
+      <Component {...pageProps} theme={theme} toggleTheme={toggleTheme} />
     </CartProvider>
   );
-};
+}
 
-export default MyApp
+export default MyApp;

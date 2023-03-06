@@ -5,14 +5,9 @@ import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithPopup
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
   
 import { Header } from "../../components/Header";
-import { app } from "../../config/firebase";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {

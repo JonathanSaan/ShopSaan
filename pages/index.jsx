@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import axios from "axios";
 import { Grid, CardMedia, Typography, ListItem } from "@mui/material";
 
 import { Header } from "../components/Header";
