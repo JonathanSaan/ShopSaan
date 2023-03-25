@@ -24,7 +24,14 @@
     .productPrice {
       position: absolute;
       font-size: 1.5em;
-      margin: -7.5em 0 0 10.6em;
+      margin: -7.5em 0 0 10.7em;
+    }
+
+    .productSelect {
+      position: absolute;
+      margin: -7.8em 0 0 16em;
+      width: 5em;
+      border: 1px #FFF solid;
     }
 
     .productButton {
@@ -37,7 +44,7 @@
       color: #FFF;
       margin: 3em 0 0 0;
       height: 4em;
-      width: 25em;
+      width: 26em;
 
       &:active {
         background-color: #f5f7f6;
@@ -77,7 +84,16 @@
       position: absolute;
       font-size: 1.5em;
       color: #FFF;
-      margin: -7.5em 0 0 10.6em;
+      margin: -7.5em 0 0 10.7em;
+    }
+
+    .productSelect {
+      position: absolute;
+      color: #FFF;
+      margin: -7.8em 0 0 16em;
+      width: 5em;
+      border: 1px #FFF solid;
+      appearance: none;
     }
 
     .productButton {
@@ -89,7 +105,7 @@
       color: #FFF;
       margin: 3em 0 0 0;
       height: 4em;
-      width: 25em;
+      width: 26em;
 
       &:active {
         filter: Brightness(0.8);
@@ -119,6 +135,10 @@
         margin: .3em 0;
       }
 
+      .productSelect {
+        margin: -6em 0 0 14.5em;
+      }
+
       .productButton {
         width: 100%;
       }
@@ -142,6 +162,10 @@
       .productPrice {
         position: relative;
         margin: .3em 0;
+      }
+
+      .productSelect {
+        margin: -6em 0 0 14.5em;
       }
 
       .productButton {

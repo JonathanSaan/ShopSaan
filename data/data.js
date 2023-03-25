@@ -32,6 +32,12 @@ export const data = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",
     name: "Blood",
     slug: "blood",
+    types: {
+      type1: "A",
+      type2: "B",
+      type3: "AB",
+      type4: "O",
+    },
     price: 50,
   },
   {

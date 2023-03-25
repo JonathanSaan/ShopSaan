@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 
 import { Dropdown } from "./Dropdown";

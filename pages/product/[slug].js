@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -7,17 +8,28 @@ import { useCart } from "react-use-cart";
 import { data } from "../../data/data";
 import NotFound from "../404";
 import { Header } from "../../components/Header";
+import SelectType from "../../components/SelectType";
 import styles from "../../styles/Product.module.scss";
 
 export default function Details({ theme, toggleTheme }) {
   const router = useRouter();
   const { slug } = router.query;
   const product = data.find((a) => a.slug === slug);
-  
+
+  const [typeBlood, setTypeBlood] = useState();
+
   const { addItem } = useCart();
   
   if (!product) {
     return <NotFound />
+  };
+  
+  const handleProduct = () => {
+    if (typeBlood) {
+      addItem(product, typeBlood);
+    };
+    console.log(product);
+    addItem(product);
   };
   
   return (
@@ -45,7 +57,8 @@ export default function Details({ theme, toggleTheme }) {
           <Typography className={styles.productPrice}>
             ${product.price} 
           </Typography>
-          <button onClick={() => addItem(product)} className={styles.productButton}>
+          
+          <button onClick={handleProduct} className={styles.productButton}>
             Add to cart
           </button>
         </div>
@@ -53,3 +66,4 @@ export default function Details({ theme, toggleTheme }) {
     </>
   );
 };
+          //<SelectType product={product} typeBlood={typeBlood} setTypeBlood={setTypeBlood} />

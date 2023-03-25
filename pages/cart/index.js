@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -58,14 +58,19 @@ export default function Cart({ theme, toggleTheme }) {
   } = useCart();
 
   const HandleCart = () => {
+    console.log(totalUniqueItems)
+    console.log(cartTotal)
+    console.log(items)
+    console.log(emptyCart)
+    
     if (token === null) {
       return router.push("/login");
-    }
+    };
 
     setIsOpen(!isOpen);
     if (isOpen == true) {
       emptyCart();
-    }
+    };
   };
 
   return (
@@ -103,6 +108,7 @@ export default function Cart({ theme, toggleTheme }) {
                         <a className={styles.card_container_item_leftdetailName}>
                           {item.name}
                         </a>
+
                       </Link>
                       <p
                         onClick={() => removeItem(item.id)}
