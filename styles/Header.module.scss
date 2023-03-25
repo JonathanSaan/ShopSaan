@@ -95,6 +95,7 @@
 
 .Menu {
   margin: .4em 0 0 -.5em;
+  cursor: pointer;
   
   .MenuItem {
     cursor: pointer;
@@ -114,8 +115,8 @@
   }
   
   .ThemeCheckbox {
-    padding: 0;
     cursor: pointer;
+    padding: 0;
     
     label {
       align-items: center;

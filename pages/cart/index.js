@@ -3,43 +3,41 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Modal from "react-modal";
+//import Modal from "react-modal";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useCart } from "react-use-cart";
-import { CardMedia } from "@mui/material";
+import { CardMedia, Modal, Box } from "@mui/material";
 
 import { Header } from "../../components/Header";
 import styles from "../../styles/Cart.module.scss";
 
-const ThemeDarkModal = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    backgroundColor: "#2A2D34",
-    color: "#FFF",
-    padding: "2em 1em 2em 1em",
-    textAlign: "center",
-    marginTop: "2em",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
+const DarkModal = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: '#2a2d34',
+  color: '#FFF',
+  border: '2px solid #000',
+  textAlign: "center",
+  boxShadow: 24,
+  pt: 5,
+  px: 4,
+  pb: 3,
 };
 
-const ThemeWhiteModal = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    backgroundColor: "#FFF",
-    padding: "2em 1em 2em 1em",
-    textAlign: "center",
-    marginTop: "2em",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
+const WhiteModal = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  textAlign: "center",
+  boxShadow: 24,
+  pt: 5,
+  px: 4,
+  pb: 3,
 };
 
 export default function Cart({ theme, toggleTheme }) {
@@ -58,11 +56,6 @@ export default function Cart({ theme, toggleTheme }) {
   } = useCart();
 
   const HandleCart = () => {
-    console.log(totalUniqueItems)
-    console.log(cartTotal)
-    console.log(items)
-    console.log(emptyCart)
-    
     if (token === null) {
       return router.push("/login");
     };
@@ -149,7 +142,31 @@ export default function Cart({ theme, toggleTheme }) {
             ) : null}
           </div>
         </div>
+        <Modal
+          open={isOpen}
+          onClose={HandleCart}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+        >
+          <Box sx={{ ...theme ? DarkModal : WhiteModal, width: 350 }}>
+            <CheckCircleOutlinedIcon color="success" sx={{ fontSize: 80 }} />
+            <h1>Thank you.</h1>
+            <p>Your order was completed successfully. </p>
+            <button
+              onClick={HandleCart}
+              style={{ margin: "1em 0 0 10em", padding: ".5em 1em", cursor: "pointer" }}
+            >
+              Ok
+            </button>
+          </Box>
+        </Modal>
+      </div>
+    </>
+  );
+}
 
+
+/*
         <Modal
           isOpen={isOpen}
           onRequestClose={HandleCart}
@@ -166,7 +183,4 @@ export default function Cart({ theme, toggleTheme }) {
             Ok
           </button>
         </Modal>
-      </div>
-    </>
-  );
-}
+ */
