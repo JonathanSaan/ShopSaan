@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-//import Modal from "react-modal";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useCart } from "react-use-cart";
 import { CardMedia, Modal, Box } from "@mui/material";
@@ -164,23 +163,3 @@ export default function Cart({ theme, toggleTheme }) {
     </>
   );
 }
-
-
-/*
-        <Modal
-          isOpen={isOpen}
-          onRequestClose={HandleCart}
-          style={theme ? ThemeDarkModal : ThemeWhiteModal}
-          contentLabel="My dialog"
-        >
-          <CheckCircleOutlinedIcon color="success" sx={{ fontSize: 80 }} />
-          <h1>Thank you.</h1>
-          <p>Your order was completed successfully. </p>
-          <button
-            onClick={HandleCart}
-            style={{ margin: "1em 0 0 15em", padding: ".5em 1em" }}
-          >
-            Ok
-          </button>
-        </Modal>
- */
