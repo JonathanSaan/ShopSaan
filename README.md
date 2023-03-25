@@ -11,5 +11,4 @@
 
 ## Built with
 * NextJs
-* JavaScript
 * Styled Components
