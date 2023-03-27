@@ -7,7 +7,7 @@ import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useCart } from "react-use-cart";
 import { CardMedia, Modal, Box } from "@mui/material";
 
-import { Header } from "../../components/Header";
+import Header from "../../components/Header";
 import styles from "../../styles/Cart.module.scss";
 
 const DarkModal = {
@@ -96,12 +96,19 @@ export default function Cart({ theme, toggleTheme }) {
                     ></CardMedia>
 
                     <div className={styles.card_container_item_leftdetail}>
-                      <Link key={item.id} href={`product/${item.slug}`}>
-                        <a className={styles.card_container_item_leftdetailName}>
-                          {item.name}
-                        </a>
-
-                      </Link>
+                        {item.type ? (
+                            <Link key={item.id} href={`product/${item.slug}`}>
+                              <a className={styles.card_container_item_leftdetailName}>
+                                {item.name} - {item.type}
+                              </a>
+                            </Link>
+                          ) : (
+                            <Link key={item.id} href={`product/${item.slug}`}>
+                              <a className={styles.card_container_item_leftdetailName}>
+                                {item.name}
+                              </a>
+                            </Link>
+                          )}
                       <p
                         onClick={() => removeItem(item.id)}
                         className={styles.card_container_item_leftdetailRemove}

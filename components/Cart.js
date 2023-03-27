@@ -7,7 +7,6 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import styles from "../styles/Header.module.scss";
 
 export const Cart = () => {
-  
   const { totalUniqueItems } = useCart();
   
   return (

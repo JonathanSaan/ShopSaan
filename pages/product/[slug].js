@@ -7,7 +7,7 @@ import { useCart } from "react-use-cart";
 
 import { data } from "../../data/data";
 import NotFound from "../404";
-import { Header } from "../../components/Header";
+import Header from "../../components/Header";
 import SelectType from "../../components/SelectType";
 import styles from "../../styles/Product.module.scss";
 
@@ -16,7 +16,7 @@ export default function Details({ theme, toggleTheme }) {
   const { slug } = router.query;
   const product = data.find((a) => a.slug === slug);
 
-  const [typeBlood, setTypeBlood] = useState();
+  const [typeChosen, setTypeChosen] = useState(product.types?.[0]);
 
   const { addItem } = useCart();
   
@@ -25,11 +25,11 @@ export default function Details({ theme, toggleTheme }) {
   };
   
   const handleProduct = () => {
-    if (typeBlood) {
-      addItem(product, typeBlood);
+    if (typeChosen) {
+      return addItem(typeChosen);
     };
-    console.log(product);
-    addItem(product);
+
+    return addItem(product);
   };
   
   return (
@@ -55,8 +55,9 @@ export default function Details({ theme, toggleTheme }) {
             {product.name}
           </Typography>
           <Typography className={styles.productPrice}>
-            ${product.price} 
+            ${typeChosen?.price ? typeChosen?.price : product.price}
           </Typography>
+          <SelectType product={product} typeChosen={typeChosen} setTypeChosen={setTypeChosen} />
           
           <button onClick={handleProduct} className={styles.productButton}>
             Add to cart
@@ -66,4 +67,3 @@ export default function Details({ theme, toggleTheme }) {
     </>
   );
 };
-          //<SelectType product={product} typeBlood={typeBlood} setTypeBlood={setTypeBlood} />

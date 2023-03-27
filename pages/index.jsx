@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Grid, CardMedia, Typography, ListItem } from "@mui/material";
 
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.scss";
 
@@ -36,7 +36,7 @@ export default function Home({ theme, toggleTheme }) {
                     {product.name}
                   </Typography>
                   <Typography className={styles.container_item_detailsPrice}>
-                    ${product.price}
+                    ${product.price ? product.price : product.types[0].price}
                   </Typography>
                 </ListItem>
               </Grid>

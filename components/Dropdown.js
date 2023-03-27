@@ -16,7 +16,6 @@ import { app } from "../config/firebase";
 import styles from "../styles/Header.module.scss"
 
 export const Dropdown = ({ theme, toggleTheme }) => {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);

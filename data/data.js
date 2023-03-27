@@ -32,16 +32,39 @@ export const data = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",
     name: "Blood",
     slug: "blood",
-    types: {
-      type1: "A",
-      type2: "B",
-      type3: "AB",
-      type4: "O",
-    },
-    price: 50,
+    types: [
+      {
+        id: 6,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",    
+        name: "Blood",
+        type: "A",
+        price: 30,
+      },
+      {
+        id: 7,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",  
+        name: "Blood",
+        type: "B",
+        price: 50,
+      },
+      {
+        id: 8,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",  
+        name: "Blood",
+        type: "AB",
+        price: 120,
+      },
+      {
+        id: 9,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUXRJslIhL7ksT8BUvVicMTZ9Q79zN-WG0Q&usqp=CAU",  
+        name: "Blood",
+        type: "O",
+        price: 30,
+      },
+    ]
   },
   {
-    id: 6,
+    id: 10,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEN8Gw4cIAIUkMDXh-t5k_Lv0HxNb4USj_Eg&usqp=CAU",
     name: "Pancreas",
     slug: "pancreas",

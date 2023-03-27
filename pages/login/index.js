@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-import { Header } from "../../components/Header";
+import Header from "../../components/Header";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {

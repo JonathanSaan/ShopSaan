@@ -4,8 +4,7 @@ import { Dropdown } from "./Dropdown";
 import { Cart } from "./Cart";
 import styles from "../styles/Header.module.scss";
 
-export const Header = ({theme, toggleTheme}) => {
-  
+const Header = ({theme, toggleTheme}) => {
   return (
     <header className={ theme ? styles.DarkMode : styles.LightMode}>
       <Link href="/">
@@ -16,3 +15,5 @@ export const Header = ({theme, toggleTheme}) => {
     </header>
   );
 };
+
+export default Header;
