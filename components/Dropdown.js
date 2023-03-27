@@ -1,10 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
-import { Menu, MenuItem, Button, IconButton, FormControlLabel, Switch } from "@mui/material";
+import { Menu, MenuItem, IconButton, FormControlLabel, Switch } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
 
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
@@ -12,12 +11,9 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
-import { app } from "../config/firebase";
 import styles from "../styles/Header.module.scss"
 
 export const Dropdown = ({ theme, toggleTheme }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   let token = sessionStorage.getItem("Token");
   let router = useRouter();
