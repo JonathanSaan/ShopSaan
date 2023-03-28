@@ -4,9 +4,9 @@ import { Dropdown } from "./Dropdown";
 import { Cart } from "./Cart";
 import styles from "../styles/Header.module.scss";
 
-const Header = ({theme, toggleTheme}) => {
+const Header = ({ theme, toggleTheme }) => {
   return (
-    <header className={ theme ? styles.DarkMode : styles.LightMode}>
+    <header className={theme ? styles.DarkMode : styles.LightMode}>
       <Link href="/">
         <a className={styles.Title}>ShopSaan </a>
       </Link>

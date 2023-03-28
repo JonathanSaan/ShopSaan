@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Menu, MenuItem, IconButton, FormControlLabel, Switch } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-
-import { useRouter } from "next/router";
 
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
-import styles from "../styles/Header.module.scss"
+import styles from "../styles/Header.module.scss";
 
 export const Dropdown = ({ theme, toggleTheme }) => {
   const [loading, setLoading] = useState(false);
