@@ -5,13 +5,13 @@ import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
+import { auth } from "../../config/firebase";
 import Header from "../../components/Header";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {
-  const auth = getAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
