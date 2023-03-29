@@ -3,7 +3,6 @@
   position: fixed;
   align-items: center;
   background-color: #eeeeee;
-  margin: 0 0 auto 0;
   transition: 200ms;
   border-bottom: 1px solid gray;
   padding: 0 .5em;
@@ -47,7 +46,6 @@
   position: fixed;
   align-items: center;
   background-color: #1B1B1E;
-  margin: 0 0 auto 0;
   transition: 200ms;
   border-bottom: 1px solid gray;
   padding: 0 .5em;
@@ -101,7 +99,7 @@
 
     label {
       display: flex;
-      padding: 0 2em 0 1em;
+      padding: 0 0 0 1em;
       cursor: pointer;
       align-items: center;
       height: 3em;
