@@ -16,7 +16,7 @@ export default function Login({ theme, toggleTheme }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async (event) => {
+  const login = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
