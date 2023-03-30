@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(false);
+  const [showing, setShowing] = useState(false);
 
   const toggleTheme = () => {
     setTheme((theme) => {
@@ -17,8 +18,13 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const themeFromLocalStorage = JSON.parse(localStorage.getItem("theme"));
     setTheme(themeFromLocalStorage);
+    setShowing(true);
   }, []);
-  
+
+  if (!showing) {
+    return null;
+  }
+
   if (typeof window === "undefined") {
     return <></>;
   }
