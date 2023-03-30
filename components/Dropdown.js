@@ -17,13 +17,6 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   let token = sessionStorage.getItem("Token");
   let router = useRouter();
   
-  const handleClick = () => {
-    if (theme) {
-      return setLoading(false);
-    }
-    return setLoading(true);
-  };
-  
   const Logout = () => {
 		sessionStorage.removeItem("Token");
     router.push("/");
