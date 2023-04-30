@@ -62,7 +62,7 @@ export default function SignUp({ theme, toggleTheme }) {
     if(token){
       router.push("/");
     };
-  }, []);
+  }, [router]);
   
   return (
     <>

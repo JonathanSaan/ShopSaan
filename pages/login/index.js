@@ -42,7 +42,7 @@ export default function Login({ theme, toggleTheme }) {
     if (token) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <>
