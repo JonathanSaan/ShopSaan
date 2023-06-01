@@ -26,7 +26,7 @@ export default function SignUp({ theme, toggleTheme }) {
       if (password !== confirmPassword) {
         return ErrorForm("Passwords must be the same.");
       }
-      
+
       const response = await createUserWithEmailAndPassword(auth, email, password);
       sessionStorage.setItem("Token", response.user.accessToken);
       router.push("/");
@@ -41,7 +41,7 @@ export default function SignUp({ theme, toggleTheme }) {
     if (token) {
       router.push("/");
     }
-  }, [router]);
+  }, []);
 
   return (
     <>
