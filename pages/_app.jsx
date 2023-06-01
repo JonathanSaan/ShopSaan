@@ -4,6 +4,8 @@ import { CartProvider } from "react-use-cart";
 
 import "../styles/globals.scss";
 
+export { default } from "next/app";
+
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(false);
   const [showing, setShowing] = useState(false);
