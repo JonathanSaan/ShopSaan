@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-
 import { CartProvider } from "react-use-cart";
-
 import "../styles/globals.scss";
-
-export { default } from "next/app";
+import { default as NextApp } from "next/app";
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(false);
@@ -38,4 +35,9 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default class App extends NextApp {
+  render() {
+    const { Component, pageProps } = this.props;
+    return <MyApp Component={Component} pageProps={pageProps} />;
+  }
+}
