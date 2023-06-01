@@ -4,4 +4,7 @@ module.exports = {
     defaultLocale: "en",
   },
   reactStrictMode: true,
-}
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+};
