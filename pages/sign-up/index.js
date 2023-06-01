@@ -3,74 +3,56 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../../config/firebase";
 import Header from "../../components/Header";
+import ErrorForm from "../../utils/ErrorForm";
 import styles from "../../styles/SignUp.module.scss";
 
 export default function SignUp({ theme, toggleTheme }) {
   const router = useRouter();
-  
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const signUp = (event) => {
+  const signUp = async (event) => {
     event.preventDefault();
-    if (username === "" || email === "" || password === "" || confirmPassword === "") {
-      return (
-        toast.error("Unable to log in with provided credentials.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          progress: undefined,
-          draggable: true,
-        })
-      );
-    };
     
-    if (password !== confirmPassword) {
-      return (
-        toast.error("Passwords must be the same.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          progress: undefined,
-          draggable: true,
-        })
-      );
-    };
-    
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        sessionStorage.setItem("Token", response.user.accessToken);
-        router.push("/");
-      })
+    try {
+      if (password !== confirmPassword) {
+        return ErrorForm("Passwords must be the same.");
+      }
+      
+      const response = await createUserWithEmailAndPassword(auth, email, password);
+      sessionStorage.setItem("Token", response.user.accessToken);
+      router.push("/");
+    } catch (error) {
+      ErrorForm("Unable to sign up with provided credentials.");
+    }
   };
-  
+
   useEffect(() => {
     let token = sessionStorage.getItem("Token");
-    
-    if(token){
+
+    if (token) {
       router.push("/");
-    };
+    }
   }, [router]);
-  
+
   return (
     <>
       <Head>
         <title>Sign up</title>
         <meta name="description" content="sign up" />
         <meta charset="UTF-8" />
-        <meta name="keywords" content="store, ecommerce, register, signup, sign up" />
+        <meta
+          name="keywords"
+          content="store, ecommerce, register, signup, sign up"
+        />
         <meta name="author" content="JonathanSaan" />
       </Head>
       <Header theme={theme} toggleTheme={toggleTheme} />
@@ -87,8 +69,8 @@ export default function SignUp({ theme, toggleTheme }) {
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Username"
             />
-            
-            <input 
+
+            <input
               htmlFor="email"
               type="email"
               className={styles.signup_container_form_textInput}
@@ -97,8 +79,8 @@ export default function SignUp({ theme, toggleTheme }) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
             />
-            
-            <input 
+
+            <input
               htmlFor="password"
               type="password"
               min="6"
@@ -108,8 +90,8 @@ export default function SignUp({ theme, toggleTheme }) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
-            
-            <input 
+
+            <input
               htmlFor="password"
               type="password"
               min="6"
@@ -119,21 +101,21 @@ export default function SignUp({ theme, toggleTheme }) {
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm Password"
             />
-          
+
             <button className={styles.signup_container_formButton}>
               Sign up
             </button>
           </form>
-          
+
           <p>
-            Already have an account? 
+            Already have an account?
             <Link href={`/login`}>
               <a>Login </a>
             </Link>
           </p>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </>
   );
-};
+}

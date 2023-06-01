@@ -29,7 +29,8 @@
         margin: .5em 5vw;
         padding: 0 0 0 1.5vw;
         font-size: 1vw;
-        height: 4vw;
+        min-height: 3.5rem;
+        height: 3.5vw;
         width: 30vw;
 
         &:focus {
@@ -47,9 +48,10 @@
         border-radius: .5em;
         background-color: #000;
         box-shadow: rgba(0, 0, 0, .14) 0px 2px 2px 0px;
-        color: #fff;
-        margin: 2em 0;
-        height: 4vw;
+        color: #f5f7f6;
+        margin: 2em 0 0 0;
+        min-height: 3.5rem;
+        height: 3.5vw;
         width: 30vw;
 
         &:active {
@@ -63,7 +65,7 @@
 
     p {
       font-size: .8em;
-      margin: 15vh 0 1vh 0;
+      margin: 27% 0 0 0;
       color: #000;
       text-align: center;
 
@@ -91,7 +93,7 @@
     width: 23em;
 
     .signup_containerTitle {
-      color: #fff;
+      color: #f5f7f6;
       text-align: center;
       margin: 1.5em 0;
     }
@@ -109,7 +111,8 @@
         margin: .5em 5vw;
         padding: 0 0 0 1.5vw;
         font-size: 1vw;
-        height: 4vw;
+        min-height: 3.5rem;
+        height: 3.5vw;
         width: 30vw;
 
         &:focus {
@@ -126,9 +129,10 @@
         border-radius: .5em;
         cursor: pointer;
         background-color: #5e5ce5;
-        color: #fff;
-        margin: 2em 0;
-        height: 4vw;
+        color: #f5f7f6;
+        margin: 2em 0 0 0;
+        min-height: 3.5rem;
+        height: 3.5vw;
         width: 30vw;
 
         &:active {
@@ -140,8 +144,8 @@
 
     p {
       font-size: .8em;
-      margin: 15vh 0 1vh 0;
-      color: #fff;
+      margin: 27% 0 0 0;
+      color: #f5f7f6;
       text-align: center;
 
       a {
@@ -161,7 +165,8 @@
 
     .signup_container_form {
       .signup_container_form_textInput {
-        font-size: 2vw;
+        font-size: 3vw;
+        padding: 0 0 0 4vw;
         height: 4em;
         width: 80vw;
       }
@@ -178,7 +183,8 @@
 
     .signup_container_form {
       .signup_container_form_textInput {
-        font-size: 2vw;
+        font-size: 3vw;
+        padding: 0 0 0 4vw;
         height: 4em;
         width: 80vw;
       }

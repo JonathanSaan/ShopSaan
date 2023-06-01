@@ -3,37 +3,30 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../../config/firebase";
 import Header from "../../components/Header";
+import ErrorForm from "../../utils/ErrorForm";
 import styles from "../../styles/Login.module.scss";
 
 export default function Login({ theme, toggleTheme }) {
   const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = (event) => {
+  const login = async (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((response) => {
-        sessionStorage.setItem("Token", response.user.accessToken);
-        router.push("/");
-      })
-      .catch((err) => {
-        return toast.error("Unable to log in with provided credentials.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          progress: undefined,
-          draggable: true,
-        });
-      });
+
+    try {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      sessionStorage.setItem("Token", response.user.accessToken);
+      router.push("/");
+    } catch (error) {
+      ErrorForm("Unable to log in with provided credentials.");
+    }
   };
 
   useEffect(() => {
