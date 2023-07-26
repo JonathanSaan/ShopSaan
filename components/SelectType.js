@@ -17,7 +17,7 @@ const SelectType = ({ product, typeChosen, setTypeChosen }) => {
       value={typeChosen}
       onChange={handleChange}
       displayEmpty
-      className={styles.productSelect}
+      className={styles.product_descriptionSelect}
       inputProps={{ 'aria-label': 'Without label' }}
     >
       {Object.values(product.types).map((type) => (

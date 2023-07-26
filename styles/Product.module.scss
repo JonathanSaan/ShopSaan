@@ -1,40 +1,50 @@
 .lightMode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f5f7f6;
   min-height: 100vh;
-  padding: 4em 0 0 0;
   transition: 200ms;
 
   .product {
-    margin: 0 auto;
-    height: 40em;
-    width: 25em;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 25vw;
+    min-width: 26rem;
+    width: 26vw;
 
     .productImage {
-      margin: 5em 0 0 0;
-      height: 15em;
-      width: 15em;
+      min-height: 15rem;
+      height: 17vw;
+      min-width: 15rem;
+      width: 17vw;
     }
 
-    .productName {
-      position: absolute;
-      font-size: 2em;
-      margin: -7.2em 0 0 8em;
-    }
+    .product_description {
+      display: flex;
+      margin: 0 auto 0 2vw;
+      flex-direction: column;
 
-    .productPrice {
-      position: absolute;
-      font-size: 1.5em;
-      margin: -7.5em 0 0 10.7em;
-    }
+      .product_descriptionName {
+        font-size: 2vw;
+      }
 
-    .productSelect {
-      position: absolute;
-      margin: -7.8em 0 0 16em;
-      width: 5em;
-      border: 1px #fff solid;
+      .product_descriptionPrice {
+        font-size: 1.5vw;
+      }
+
+      .product_descriptionSelect {
+        font-size: 1vw;
+        margin: .5vw 0 0 0;
+        width: 6vw;
+        border: 1px #fff solid;
+        appearance: none;
+      }
     }
 
     .productButton {
+      position: absolute;
       align-items: center;
       border: none;
       text-transform: uppercase;
@@ -42,9 +52,12 @@
       box-shadow: rgba(0, 0, 0, .14) 0px 2px 2px 0px;
       cursor: pointer;
       color: #fff;
-      margin: 3em 0 0 0;
-      height: 4em;
-      width: 30em;
+      font-size: .7vw;
+      margin: 20vw 0 0 0;
+      min-height: 3.5rem;
+      height: 3vw;
+      min-width: 26rem;
+      width: 26vw;
 
       &:active {
         background-color: #f5f7f6;
@@ -57,55 +70,67 @@
 }
 
 .darkMode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #1b1b1e;
-  padding: 4em 0 0 0;
   min-height: 100vh;
   transition: 200ms;
 
   .product {
-    margin: 0 auto;
-    height: 40em;
-    width: 25em;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 25vw;
+    min-width: 26rem;
+    width: 26vw;
 
     .productImage {
-      margin: 5em 0 0 0;
-      height: 15em;
-      width: 15em;
+      min-height: 15rem;
+      height: 17vw;
+      min-width: 15rem;
+      width: 17vw;
     }
 
-    .productName {
-      position: absolute;
-      font-size: 2em;
-      color: #fff;
-      margin: -7.2em 0 0 8em;
-    }
+    .product_description {
+      display: flex;
+      margin: 0 auto 0 2vw;
+      flex-direction: column;
 
-    .productPrice {
-      position: absolute;
-      font-size: 1.5em;
-      color: #fff;
-      margin: -7.5em 0 0 10.7em;
-    }
+      .product_descriptionName {
+        font-size: 2vw;
+        color: #fff;
+      }
 
-    .productSelect {
-      position: absolute;
-      color: #fff;
-      margin: -7.8em 0 0 16em;
-      width: 5em;
-      border: 1px #fff solid;
-      appearance: none;
+      .product_descriptionPrice {
+        font-size: 1.5vw;
+        color: #fff;
+      }
+
+      .product_descriptionSelect {
+        color: #fff;
+        font-size: 1vw;
+        margin: .5vw 0 0 0;
+        width: 6vw;
+        border: 1px #fff solid;
+        appearance: none;
+      }
     }
 
     .productButton {
+      position: absolute;
       align-items: center;
       border: none;
       text-transform: uppercase;
       background-color: #5e5ce5;
       cursor: pointer;
       color: #fff;
-      margin: 3em 0 0 0;
-      height: 4em;
-      width: 30em;
+      font-size: .7vw;
+      margin: 20vw 0 0 0;
+      min-height: 3.5rem;
+      height: 3vw;
+      min-width: 26rem;
+      width: 26vw;
 
       &:active {
         filter: Brightness(.8);
@@ -117,55 +142,79 @@
 
 @media (max-width: 800px) {
   .lightMode > .product {
+    flex-direction: column;
     padding: 3em 0;
+    height: 40rem;
     max-width: 20em;
 
     .productImage {
       margin: 0 auto 3em auto;
     }
 
-    .productName {
+    .product_description {
+      flex-direction: column;
       position: relative;
-      margin: .3em 0;
-    }
+      margin: 0 0 3rem 0;
 
-    .productPrice {
-      position: relative;
-      margin: .3em 0;
-    }
+      .product_descriptionName {
+        font-size: 2rem;
+      }
 
-    .productSelect {
-      margin: -6em 0 0 14.5em;
+      .product_descriptionPrice {
+        font-size: 1.5rem;
+      }
+
+      .product_descriptionSelect {
+        font-size: 1rem;
+        margin: -4.5rem 0 0 auto;
+        width: 5rem;
+      }
     }
 
     .productButton {
+      position: relative;
+      font-size: 1rem;
+      margin: 5vw 0 0 0;
+      min-height: 4.5rem;
       width: 100%;
     }
   }
 
   .darkMode > .product {
-    max-width: 20em;
+    flex-direction: column;
     padding: 3em 0;
+    height: 40rem;
+    max-width: 20em;
 
     .productImage {
       margin: 0 auto 3em auto;
     }
 
-    .productName {
+    .product_description {
+      flex-direction: column;
       position: relative;
-      margin: .3em 0;
-    }
+      margin: 0 0 3rem 0;
 
-    .productPrice {
-      position: relative;
-      margin: .3em 0;
-    }
+      .product_descriptionName {
+        font-size: 2rem;
+      }
 
-    .productSelect {
-      margin: -6em 0 0 14.5em;
+      .product_descriptionPrice {
+        font-size: 1.5rem;
+      }
+
+      .product_descriptionSelect {
+        font-size: 1rem;
+        margin: -4.5rem 0 0 auto;
+        width: 5rem;
+      }
     }
 
     .productButton {
+      position: relative;
+      font-size: 1rem;
+      margin: 5vw 0 0 0;
+      min-height: 4.5rem;
       width: 100%;
     }
   }

@@ -32,12 +32,12 @@ export const Dropdown = ({ theme, toggleTheme }) => {
   const options = [
     {
       id: 1,
-      img: <LoginOutlinedIcon size={20} />,
+      img: <LoginOutlinedIcon fontSize="small" />,
       aOption: "Login",
     },
     {
       id: 2,
-      img: <PersonAddAltOutlinedIcon size={20} />,
+      img: <PersonAddAltOutlinedIcon fontSize="small" />,
       aOption: "Sign Up",
     }
   ];
@@ -65,7 +65,7 @@ export const Dropdown = ({ theme, toggleTheme }) => {
       					</MenuItem>
       					<MenuItem className={styles.MenuItem} onClick={Logout}>
       					  <label>
-      						  <LogoutOutlinedIcon size={20} />
+      						  <LogoutOutlinedIcon fontSize="small" />
       						  <p>Logout</p>
       					  </label>
       					</MenuItem>

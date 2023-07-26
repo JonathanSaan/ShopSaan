@@ -5,36 +5,41 @@
   background-color: #eeeeee;
   transition: 200ms;
   border-bottom: 1px solid gray;
-  padding: 0 .5em;
-  height: 4rem;
+  padding: 0 1vw;
+  min-height: 4.5rem;
+  height: 3vw;
   width: 100%;
   z-index: 3;
-  
+
   .Title {
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: "Alegreya Sans SC", sans-serif;
     margin: 0 auto 0 0;
     color: #000;
-    font-size: 2em;
+    font-size: 1.7vw;
     font-weight: 700;
   }
 
   .IconButton {
     cursor: pointer;
-    height: 1.7em;
-    width: 1.7em;
-    
+    min-height: 1.7rem;
+    height: 1.7vw;
+    min-width: 1.7rem;
+    width: 1.7vw;
+
     .Icon {
-      height: 2rem;
+      min-height: 2rem;
+      height: 2vw;
       color: #000;
     }
-    
+
     .TotalItemsCart {
       position: absolute;
       font-size: .7em;
       margin: 0 0 2em 1.5em;
     }
 
-    &:active, &:hover {
+    &:active,
+    &:hover {
       background-color: #e0e0e0;
       transition: 500ms;
     }
@@ -45,40 +50,45 @@
   display: flex;
   position: fixed;
   align-items: center;
-  background-color: #1B1B1E;
+  background-color: #1b1b1e;
   transition: 200ms;
   border-bottom: 1px solid gray;
-  padding: 0 .5em;
-  height: 4rem;
+  padding: 0 1vw;
+  min-height: 4.5rem;
+  height: 3vw;
   width: 100%;
   z-index: 3;
-  
+
   .Title {
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: "Alegreya Sans SC", sans-serif;
     margin: 0 auto 0 0;
-    color: #FFF;
-    font-size: 2em;
+    color: #fff;
+    font-size: 1.7vw;
     font-weight: 700;
   }
 
   .IconButton {
     cursor: pointer;
-    height: 1.7em;
-    width: 1.7em;
+    min-height: 1.7rem;
+    height: 1.7vw;
+    min-width: 1.7rem;
+    width: 1.7vw;
 
     .Icon {
-      height: 2rem;
-      color: #FFF;
+      min-height: 2rem;
+      height: 2vw;
+      color: #fff;
     }
-    
+
     .TotalItemsCart {
       position: absolute;
-      color: #5E5CE5;
+      color: #5e5ce5;
       font-size: .7em;
       margin: 0 0 2em 1.5em;
     }
 
-    &:active, &:hover {
+    &:active,
+    &:hover {
       background-color: #393c43;
       transition: 500ms;
 
@@ -90,10 +100,9 @@
   }
 }
 
-
 .Menu {
-  margin: .4em 0 0 -.5em;
-  
+  margin: .4rem 0 0 -.5em;
+
   .MenuItem {
     padding: 0;
 
@@ -102,25 +111,95 @@
       padding: 0 0 0 1em;
       cursor: pointer;
       align-items: center;
-      height: 3em;
+      min-height: 3rem;
+      height: 3vw;
       width: 100%;
-      
+
       p {
         margin: 0 0 0 .5em;
       }
     }
   }
-  
+
   .ThemeCheckbox {
     padding: 0;
 
     label {
       align-items: center;
       width: 100%;
-      
+
       .Checkbox {
-        height: 2.5em;
+        min-height: 2.7rem;
+        height: 2.5vw;
+        max-height: 2.8rem;
         margin: 0 0 0 .7em;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .LightMode {
+    padding: 0 2vw;
+    height: 7vh;
+
+    .Title {
+      font-size: 5vw;
+    }
+
+    .IconButton {
+      height: 2.5rem;
+      width: 2.5rem;
+      
+      .Icon {
+        height: 5rem;
+      }
+
+      .TotalItemsCart {
+        font-size: 1rem;
+        margin: 0 0 2rem 1.5rem;
+      }
+    }
+  }
+
+  .DarkMode {
+    padding: 0 2vw;
+    height: 7vh;
+
+    .Title {
+      font-size: 5vw;
+    }
+
+    .IconButton {
+      height: 2.5rem;
+      width: 2.5rem;
+      
+      .Icon {
+        height: 5rem;
+      }
+      
+      .TotalItemsCart {
+        font-size: 1rem;
+        margin: 0 0 2rem 1.5rem;
+      }
+      
+    }
+  }
+
+  .Menu {
+    margin: .7em 0 0 -.5em;
+
+    .MenuItem {
+      label {
+        height: 3rem;
+      }
+    }
+  
+    .ThemeCheckbox {
+      label {
+        .Checkbox {
+          height: 2.7rem;
+        }
       }
     }
   }

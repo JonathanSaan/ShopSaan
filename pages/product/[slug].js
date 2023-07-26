@@ -51,13 +51,15 @@ export default function Details({ theme, toggleTheme }) {
             className={styles.productImage}
             loading="lazy"
           ></CardMedia>
-          <Typography className={styles.productName}>
-            {product.name}
-          </Typography>
-          <Typography className={styles.productPrice}>
-            ${typeChosen?.price ? typeChosen?.price : product.price}
-          </Typography>
-          <SelectType product={product} typeChosen={typeChosen} setTypeChosen={setTypeChosen} />
+          <div className={styles.product_description}>
+            <Typography className={styles.product_descriptionName}>
+              {product.name}
+            </Typography>
+            <Typography className={styles.product_descriptionPrice}>
+              ${typeChosen?.price ? typeChosen?.price : product.price}
+            </Typography>
+            <SelectType product={product} typeChosen={typeChosen} setTypeChosen={setTypeChosen} />
+          </div>
           
           <button onClick={handleProduct} className={styles.productButton}>
             Add to cart
