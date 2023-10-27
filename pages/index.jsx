@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Grid, CardMedia, Typography, ListItem } from "@mui/material";
 
 import Header from "../components/Header";
+import Alert from "../components/Alert";
 import { data } from "../data/data";
 import styles from "../styles/Home.module.scss";
 
@@ -17,6 +18,7 @@ export default function Home({ theme, toggleTheme }) {
         <meta name="keywords" content="store, ecommerce, shopping, organs, organ" />
         <meta name="author" content="JonathanSaan" />
       </Head>
+      <Alert theme={theme} />
       <Header theme={theme} toggleTheme={toggleTheme}/>
       <div className={theme ? styles.darkMode : styles.lightMode}>
         <div className={styles.container}>
