@@ -1,143 +1,108 @@
-.lightMode {
+.lightMode, .darkMode {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f7f6;
   min-height: 100vh;
   transition: 200ms;
-  
+
   .container {
     display: flex;
-    min-width: 40rem;
+    min-width: 50rem;
     width: 40vw;
     flex-wrap: wrap;
-    
+
     .container_item {
       display: flex;
       flex-direction: column;
-      border: #45454524 1px solid;
       padding: 1.3vw 1vw;
       margin: 1.5vw auto;
       cursor: pointer;
-      min-height: 13em;
+      min-height: 17em;
       height: auto;
-      min-width: 11em;
+      min-width: 15em;
       width: 11vw;
       transition: 200ms;
-      background-color: #FFF;
       z-index: 2;
-      
+
       .container_itemImage {
         margin: 0 auto;
-        min-height: 6rem;
+        min-height: 10rem;
         height: 6vw;
-        min-width: 6rem;
+        min-width: 10rem;
         width: 6vw;
       }
-      
+
       .container_item_details {
         display: inline-block;
         margin: 1em 0 0 0;
         width: 4em;
         padding: 0;
-        
+
         .container_item_detailsTitle {
           height: 1.2em;
           transition: 200ms;
           font-size: 1vw;
           margin: .7em 0 .3em 0;
         }
-        
+
         .container_item_detailsPrice {
           color: gray;
           font-size: .8vw;
           margin: 0;
         }
       }
-      
+
+      &:hover {
+        transition: 350ms;
+      }
+    }
+
+    h1 {
+      margin: auto;
+    }
+  }
+}
+
+.lightMode {
+  background-color: #f5f7f6;
+
+  .container {
+    .container_item {
+      border: #45454524 1px solid;
+      background-color: #fff;
+
       &:hover {
         transition: 350ms;
         border: 1px solid #000;
       }
     }
-    
-    h1 {
-      margin: auto;
-    }
   }
 }
 
 .darkMode {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #2A2D34;
-  min-height: 100vh;
-  transition: 200ms;
+  background-color: #2a2d34;
 
   .container {
-    display: flex;
-    min-width: 40rem;
-    width: 40vw;
-    flex-wrap: wrap;
-    
     .container_item {
-      display: flex;
-      flex-direction: column;
-      border: #1B1B1E 1px solid;
-      padding: 1.3vw 1vw;
-      margin: 1.5vw auto;
-      cursor: pointer;
-      min-height: 13em;
-      height: auto;
-      min-width: 11em;
-      width: 11vw;
-      transition: 200ms;
-      background-color: #1B1B1E;
-      
-      .container_itemImage {
-        margin: 0 auto;
-        min-height: 6rem;
-        height: 6vw;
-        min-width: 6rem;
-        width: 6vw;
-      }
-      
+      border: #1b1b1e 1px solid;
+      background-color: #1b1b1e;
+
       .container_item_details {
-        display: inline-block;
-        margin: 1em 0 0 0;
-        width: 4em;
-        padding: 0;
-        
         .container_item_detailsTitle {
-          height: 1.2em;
-          transition: 200ms;
-          color: #FFF;
-          font-size: 1vw;
-          margin: .7em 0 .3em 0;
-        }
-        
-        .container_item_detailsPrice {
-          color: gray;
-          font-size: .8vw;
-          margin: 0;
+          color: #fff;
         }
       }
-      
+
       &:hover {
         transition: 350ms;
-        border: 1px solid #FFF;
+        border: 1px solid #fff;
       }
-    }
-    
-    h1 {
-      margin: auto;
     }
   }
 }
 
 @media (max-width: 600px) {
-  .lightMode {
+  .lightMode, .darkMode {
     padding: 7em 0 0 0;
     align-items: start;
 
@@ -156,40 +121,12 @@
             height: 1.2rem;
             font-size: 1em;
           }
-          
+
           .container_item_detailsPrice {
             font-size: .8em;
           }
         }
       }
     }
-  } 
-  
-  .darkMode {
-    padding: 7em 0 0 0;
-    align-items: start;
-
-    .container {
-      min-width: 0;
-      width: 90vw;
-      
-      .container_item {
-        padding: 1.3rem 1rem;
-        margin: 0 auto 5% auto;
-        height: 13em;
-        width: 10.5em;
-
-        .container_item_details {
-          .container_item_detailsTitle {
-            height: 1.2rem;
-            font-size: 1em;
-          }
-          
-          .container_item_detailsPrice {
-            font-size: .8em;
-          }
-        }
-      }
-    }
-  } 
+  }
 }

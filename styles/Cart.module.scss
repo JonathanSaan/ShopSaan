@@ -1,5 +1,4 @@
-.lightMode {
-  background-color: #f5f7f6;
+.lightMode, .darkMode {
   min-height: 100vh;
   padding: 6rem 0 0 0;
   transition: 200ms;
@@ -61,7 +60,6 @@
           button {
             height: 2em;
             width: 2em;
-            border: lightgray solid 1px;
             background-color: #FFF;
             color: #000;
           }
@@ -77,11 +75,6 @@
 
           .Quantity {
             color: #000;
-            width: auto;
-
-            p {
-              margin: auto;
-            }
           }
         }
 
@@ -108,19 +101,50 @@
       border: none;
       border-radius: .5em;
       text-transform: uppercase;
-      background-color: #000;
-      box-shadow: rgba(0,0,0,.14) 0px 2px 2px 0px;
-      color: #FFF;
       cursor: pointer;
+      color: #FFF;
       margin: 0 auto 3em auto;
       height: 4em;
       width: 20em;
 
       &:active {
+        transition: 200ms;
+      }
+    }
+  }
+}
+
+.lightMode {
+  background-color: #f5f7f6;
+
+  .card {
+    .card_container {
+      .card_container_item {
+        border-bottom: .5px solid #000;
+
+
+        .card_container_item_leftdetail {
+          .card_container_item_leftdetailRemove {
+            color: #000;
+          }
+        }
+
+        .card_container_item_rightdetail {
+          button {
+            border: lightgray solid 1px;
+          }
+        }
+      }
+    }
+
+    .card_containerPayButton {
+      background-color: #000;
+      box-shadow: rgba(0,0,0,.14) 0px 2px 2px 0px;
+
+      &:active {
         background-color: #f5f7f6;
         border: 1px solid #000;
         color: #000;
-        transition: 200ms;
       }
     }
   }
@@ -128,18 +152,9 @@
 
 .darkMode {
   background-color: #1B1B1E;
-  min-height: 100vh;
-  padding: 6rem 0 0 0;
-  transition: 200ms;
 
   .card {
-    margin: 0 auto;
-    min-height: 10em;
-    width: 50%;
-
     .cardTitle {
-      text-align: center;
-      margin: .5em 0 1em;
       color: #FFF;
     }
 
@@ -147,72 +162,25 @@
       padding: 0 0 1em 0;
 
       .card_container_item {
-        display: flex;
-        height: 7em;
-        width: 100%;
-        align-items: center;
         border-bottom: .5px solid gray;
 
-        .card_container_itemImage {
-          height: 5em;
-          width: 5em;
-        }
-
         .card_container_item_leftdetail {
-          margin: 0 0 0 .5em;
-
           .card_container_item_leftdetailName {
             color: #FFF;
-            font-weight: 600;
           }
 
           .card_container_item_leftdetailRemove {
-            font-size: .6em;
-            height: 1.5em;
-            width: 4em;
-            cursor: pointer;
-            text-transform: uppercase;
             color: lightgray;
-            border-bottom: 1px solid gray;
-            text-align: center;
           }
         }
 
         .card_container_item_rightdetail {
-          display: flex;
-          align-items: center;
-          min-width: 8em;
-          margin: 0 0 0 auto;
-
           .card_container_item_rightdetailPrice {
-            margin: 0 1vw 0 auto;
             color: lightgray;
           }
 
           button {
-            height: 2em;
-            width: 2em;
             border: gray solid 1px;
-            background-color: #FFF;
-            color: #000;
-          }
-
-          .UpdateItemQuantity {
-            cursor: pointer;
-
-            &:active {
-              filter: Brightness(.8);
-              transition: 200ms;
-            }
-          }
-
-          .Quantity {
-            color: #000;
-            width: auto;
-
-            p {
-              margin: auto;
-            }
           }
         }
 
@@ -223,44 +191,21 @@
     }
 
     .card_containerTotalPrice {
-      margin: 35vh 0 1em .5em;
       color: #FFF;
-      font-weight: 600;
-
-      .card_containerTotalPriceNumber {
-        margin: 0 0 0 .3em;
-        font-weight: 400;
-      }
     }
 
     .card_containerPayButton {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      border-radius: .5em;
-      text-transform: uppercase;
       background-color: #5E5CE5;
-      cursor: pointer;
-      color: #FFF;
-      margin: 0 auto 3em auto;
-      height: 4em;
-      width: 20em;
 
       &:active {
         filter: Brightness(.8);
-        transition: 200ms;
       }
     }
   }
 }
 
 @media (max-width: 800px) {
-  .lightMode > .card {
-    width: 90%;
-  }
-  
-  .darkMode > .card {
+  .lightMode > .card, .darkMode > .card {
     width: 90%;
   }
 }

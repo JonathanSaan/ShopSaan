@@ -1,18 +1,16 @@
-.lightMode {
+.lightMode, .darkMode {
   display: flex;
   justify-content: center;
-  background-color: #f5f7f6;
   padding: 2rem 0 0 0;
   min-height: 100vh;
+  transition: 200ms;
 
   .signup_container {
-    background-color: #f5f7f6;
     margin: 4em 0;
     height: auto;
     width: 23em;
 
     .signup_containerTitle {
-      color: #000;
       text-align: center;
       margin: 1.5em 0;
     }
@@ -35,7 +33,6 @@
         width: 30vw;
 
         &:focus {
-          background-color: #e8e7eb;
           border: 1px solid #9895a2;
         }
       }
@@ -47,8 +44,6 @@
         border: none;
         cursor: pointer;
         border-radius: .5em;
-        background-color: #000;
-        box-shadow: rgba(0, 0, 0, .14) 0px 2px 2px 0px;
         color: #f5f7f6;
         margin: 2em 0 0 0;
         min-height: 3.5rem;
@@ -56,9 +51,6 @@
         width: 30vw;
 
         &:active {
-          background-color: #f5f7f6;
-          border: 1px solid #000;
-          color: #000;
           transition: 200ms;
         }
       }
@@ -67,124 +59,95 @@
     p {
       font-size: .8vw;
       margin: 27% 0 0 0;
-      color: #000;
       text-align: center;
 
       a {
         outline: none;
         text-decoration: none;
-        color: #000;
         margin: 0 0 0 .4em;
         font-weight: 800;
+      }
+    }
+  }
+}
+
+.lightMode {
+  background-color: #f5f7f6;
+
+  .signup_container {
+    background-color: #f5f7f6;
+
+    .signup_containerTitle {
+      color: #000;
+    }
+
+    .signup_container_form {
+      .signup_container_form_textInput {
+        &:focus {
+          background-color: #e8e7eb;
+        }
+      }
+
+      .signup_container_formButton {
+        background-color: #000;
+        box-shadow: rgba(0, 0, 0, .14) 0px 2px 2px 0px;
+
+        &:active {
+          background-color: #f5f7f6;
+          border: 1px solid #000;
+          color: #000;
+        }
+      }
+    }
+
+    p {
+      color: #000;
+
+      a {
+        color: #000;
       }
     }
   }
 }
 
 .darkMode {
-  display: flex;
-  justify-content: center;
   background-color: #1b1b1e;
-  padding: 2rem 0 0 0;
-  min-height: 100vh;
 
   .signup_container {
     background-color: #1b1b1e;
-    margin: 4em 0;
-    height: auto;
-    width: 23em;
 
     .signup_containerTitle {
       color: #f5f7f6;
-      text-align: center;
-      margin: 1.5em 0;
     }
 
     .signup_container_form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
       .signup_container_form_textInput {
-        border: 1px solid #e0dee4;
-        outline: none;
-        border-radius: .5em;
-        background-color: #f4f3f5;
-        margin: .5em 5vw;
-        padding: 0 0 0 1.5vw;
-        font-size: 1vw;
-        min-height: 3.5rem;
-        height: 3.5vw;
-        width: 30vw;
-
         &:focus {
           background-color: #d8d6dd;
-          border: 1px solid #9895a2;
         }
       }
 
       .signup_container_formButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        border-radius: .5em;
-        cursor: pointer;
         background-color: #5e5ce5;
-        color: #f5f7f6;
-        margin: 2em 0 0 0;
-        min-height: 3.5rem;
-        height: 3.5vw;
-        width: 30vw;
-
+        
         &:active {
           filter: Brightness(.8);
-          transition: 200ms;
         }
       }
     }
 
     p {
-      font-size: .8vw;
-      margin: 27% 0 0 0;
       color: #f5f7f6;
-      text-align: center;
 
       a {
-        outline: none;
-        text-decoration: none;
         color: #5e5ce5;
-        margin: 0 0 0 .4em;
-        font-weight: 800;
       }
     }
   }
 }
 
 @media screen and (max-width: 800px) {
-  .lightMode > .signup_container {
-    width: 90vw;
-
-    .signup_container_form {
-      .signup_container_form_textInput {
-        font-size: 3vw;
-        padding: 0 0 0 4vw;
-        height: 4em;
-        width: 80vw;
-      }
-
-      .signup_container_formButton {
-        height: 4em;
-        width: 80vw;
-      }
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  .darkMode > .signup_container {
+  .lightMode > .signup_container, .darkMode > .signup_container {
     width: 90vw;
 
     .signup_container_form {

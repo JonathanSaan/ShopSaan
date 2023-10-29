@@ -1,56 +1,7 @@
-.LightMode {
+.LightMode, .DarkMode {
   display: flex;
   position: fixed;
   align-items: center;
-  background-color: #eeeeee;
-  transition: 200ms;
-  border-bottom: 1px solid gray;
-  padding: 0 1vw;
-  min-height: 4.5rem;
-  height: 3vw;
-  width: 100%;
-  z-index: 3;
-
-  .Title {
-    font-family: "Alegreya Sans SC", sans-serif;
-    margin: 0 auto 0 0;
-    color: #000;
-    font-size: 1.7vw;
-    font-weight: 700;
-  }
-
-  .IconButton {
-    cursor: pointer;
-    min-height: 1.7rem;
-    height: 1.7vw;
-    min-width: 1.7rem;
-    width: 1.7vw;
-
-    .Icon {
-      min-height: 2rem;
-      height: 2vw;
-      color: #000;
-    }
-
-    .TotalItemsCart {
-      position: absolute;
-      font-size: .7em;
-      margin: 0 0 2em 1.5em;
-    }
-
-    &:active,
-    &:hover {
-      background-color: #e0e0e0;
-      transition: 500ms;
-    }
-  }
-}
-
-.DarkMode {
-  display: flex;
-  position: fixed;
-  align-items: center;
-  background-color: #1b1b1e;
   transition: 200ms;
   border-bottom: 1px solid gray;
   padding: 0 1vw;
@@ -77,20 +28,59 @@
     .Icon {
       min-height: 2rem;
       height: 2vw;
-      color: #fff;
     }
 
     .TotalItemsCart {
       position: absolute;
-      color: #5e5ce5;
       font-size: .7em;
       margin: 0 0 2em 1.5em;
     }
 
     &:active,
     &:hover {
-      background-color: #393c43;
       transition: 500ms;
+    }
+  }
+}
+
+.LightMode {
+  background-color: #eeeeee;
+
+  .Title {
+    color: #000;
+  }
+
+  .IconButton {
+    .Icon {
+      color: #000;
+    }
+
+    &:active,
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}
+
+.DarkMode {
+  background-color: #1b1b1e;
+
+  .Title {
+    color: #fff;
+  }
+
+  .IconButton {
+    .Icon {
+      color: #fff;
+    }
+
+    .TotalItemsCart {
+      color: #5e5ce5;
+    }
+
+    &:active,
+    &:hover {
+      background-color: #393c43;
 
       .Icon {
         transition: 500ms;
@@ -139,7 +129,7 @@
 }
 
 @media (max-width: 600px) {
-  .LightMode {
+  .LightMode, .DarkMode {
     padding: 0 2vw;
     height: 7vh;
 
@@ -159,30 +149,6 @@
         font-size: 1rem;
         margin: 0 0 2rem 1.5rem;
       }
-    }
-  }
-
-  .DarkMode {
-    padding: 0 2vw;
-    height: 7vh;
-
-    .Title {
-      font-size: 5vw;
-    }
-
-    .IconButton {
-      height: 2.5rem;
-      width: 2.5rem;
-      
-      .Icon {
-        height: 5rem;
-      }
-      
-      .TotalItemsCart {
-        font-size: 1rem;
-        margin: 0 0 2rem 1.5rem;
-      }
-      
     }
   }
 
