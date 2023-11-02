@@ -14,15 +14,15 @@
     font-family: "Alegreya Sans SC", sans-serif;
     margin: 0 auto 0 0;
     color: #fff;
-    font-size: 1.7vw;
+    font-size: 2.5rem;
     font-weight: 700;
   }
 
   .IconButton {
     cursor: pointer;
-    min-height: 1.7rem;
+    min-height: 2rem;
     height: 1.7vw;
-    min-width: 1.7rem;
+    min-width: 2rem;
     width: 1.7vw;
 
     .Icon {
@@ -101,8 +101,7 @@
       padding: 0 0 0 1em;
       cursor: pointer;
       align-items: center;
-      min-height: 3rem;
-      height: 3vw;
+      height: 3.8rem;
       width: 100%;
 
       p {
@@ -115,13 +114,13 @@
     padding: 0;
 
     label {
+      display: flex;
+      justify-content: center;
       align-items: center;
+      height: 3.8rem;
       width: 100%;
 
       .Checkbox {
-        min-height: 2.7rem;
-        height: 2.5vw;
-        max-height: 2.8rem;
         margin: 0 0 0 .7em;
       }
     }
@@ -134,7 +133,7 @@
     height: 7vh;
 
     .Title {
-      font-size: 5vw;
+      font-size: 2rem;
     }
 
     .IconButton {
@@ -155,18 +154,8 @@
   .Menu {
     margin: .7em 0 0 -.5em;
 
-    .MenuItem {
-      label {
-        height: 3rem;
-      }
-    }
-  
-    .ThemeCheckbox {
-      label {
-        .Checkbox {
-          height: 2.7rem;
-        }
-      }
+    .MenuItem > label, .ThemeCheckbox > label {
+      height: 3rem;
     }
   }
 }
