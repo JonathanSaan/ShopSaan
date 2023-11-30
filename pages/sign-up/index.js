@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { ToastContainer } from "react-toastify";
+import { CircularProgress } from "react-cssfx-loading";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../../config/firebase";
@@ -18,7 +19,8 @@ export default function SignUp({ theme, toggleTheme }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const [loading, setLoading] = useState(false);
+  
   const signUp = async (event) => {
     event.preventDefault();
     
@@ -26,12 +28,15 @@ export default function SignUp({ theme, toggleTheme }) {
       if (password !== confirmPassword) {
         return ErrorForm("Passwords must be the same.");
       }
-
+	  setLoading(true);
       const response = await createUserWithEmailAndPassword(auth, email, password);
       sessionStorage.setItem("Token", response.user.accessToken);
       router.push("/");
     } catch (error) {
+      setLoading(false);
       ErrorForm("Unable to sign up with provided credentials.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -102,8 +107,8 @@ export default function SignUp({ theme, toggleTheme }) {
               placeholder="Confirm Password"
             />
 
-            <button className={styles.signup_container_formButton}>
-              Sign up
+            <button disabled={loading} className={styles.signup_container_formButton}>
+              {loading ? <CircularProgress color={"#f5f7f6"} height="2em" width="2em" /> : "Sign up"}
             </button>
           </form>
 

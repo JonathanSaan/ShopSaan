@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { ToastContainer } from "react-toastify";
+import { CircularProgress } from "react-cssfx-loading";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "../../config/firebase";
@@ -16,16 +17,21 @@ export default function Login({ theme, toggleTheme }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const login = async (event) => {
     event.preventDefault();
 
     try {
+      setLoading(true);
       const response = await signInWithEmailAndPassword(auth, email, password);
       sessionStorage.setItem("Token", response.user.accessToken);
       router.push("/");
     } catch (error) {
+      setLoading(false);
       ErrorForm("Unable to log in with provided credentials.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -75,7 +81,9 @@ export default function Login({ theme, toggleTheme }) {
               placeholder="Password"
             />
 
-            <button className={styles.login_container_formButton}>Login</button>
+            <button disabled={loading} className={styles.login_container_formButton}>
+              {loading ? <CircularProgress color={"#f5f7f6"} height="2em" width="2em" /> : "Login"}
+            </button>
           </form>
 
           <p>
